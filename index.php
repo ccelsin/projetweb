@@ -4,6 +4,10 @@
 ?>
 
 <body>
-    <div></div>
+    <main>
+        <div class="card text-bg-dark">
+            <img src="" class="card-img" alt="...">
+    </main>
 </body>
 </html>
+
