@@ -4,9 +4,9 @@
 ?>
 
 <body>
-    <main>
-        
-    </main>
+    <div class="main-page">
+      
+    </div>
 </body>
 </html>
 
