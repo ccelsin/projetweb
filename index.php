@@ -6,7 +6,7 @@
 <body>
     <main>
         <div class="card text-bg-dark">
-            <img src="" class="card-img" alt="...">
+            <img src="../picture.png" class="card-img" alt="Arrière plan">
     </main>
 </body>
 </html>
