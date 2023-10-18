@@ -16,6 +16,7 @@
     $maintenant = new DateTime();
     $maintenant->setTimezone(new DateTimezone('Europe/Paris'));
     echo"<p>Nous sommes le".$maintenant-> format('d/m/Y')."</p>\n";
+
     ?>
 
 </body>
