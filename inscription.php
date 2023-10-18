@@ -2,8 +2,7 @@
     $title_page = " page d'inscription";
     include("header.inc.php");
 ?>
-<body>
-
+<main>
      <form action="index_traitement.php" method="POST" >
      votre nom:<input type="text" name="nom" ><br>
      votre prenom:<input type="text" name="prenom" ><br>
@@ -11,11 +10,6 @@
       password:<input type="password" name="password" ><br>
      <input type="submit" value="Envoyer !" ><br>
 
-
-
  </form>
 
-
-
-</body>
-</html>
+ </main>
