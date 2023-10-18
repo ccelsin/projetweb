@@ -8,3 +8,6 @@
     <form action="inscription.php" method="POST" >
         <input type="submit" value="S'inscrire" ><br>
     </form>
+    <form action="index_traitement.php" method="POST" >
+        <input type="submit" value="Test" ><br>
+    </form>
