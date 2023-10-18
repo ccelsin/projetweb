@@ -10,11 +10,13 @@
     echo "<p>au monde</p>";
     echo "<p>Qu'attendez vous!!</p>";
     echo "<p>Bonjour en php!!</p>";
-   
     /*$maintenant = new DateTime();
     $maintenant->setTimezone(new DateTimezone('Europe/Paris'));
+<<<<<<< HEAD
     echo"<p>Nous sommes le".$maintenant-> format('d/m/Y')."</p>\n";*/
-    
+
+    echo"<p>Nous sommes le".$maintenant-> format('d/m/Y')."</p>\n";
+
     ?>
 
 </body>
