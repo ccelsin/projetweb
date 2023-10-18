@@ -5,7 +5,9 @@
 
 <body>
     <main>
-      <p>Bienvenue a la Family League Arena!</p>
+      <p>Bienvenue à la <span class="text-primary">Family League Arena!</span>  </p>
+      <p>Family League Arena!</p>
+
       <p>Rejoignez le plus grand jeux de table</p>
       <p>au monde</p>
       <p>Qu'attendez vous!!</p>
