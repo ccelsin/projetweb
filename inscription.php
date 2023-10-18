@@ -3,21 +3,19 @@
     include("header.inc.php");
 ?>
 <body>
-<img src="/picture/fond d'écran app.png" alt="fond d'ecran">
-<?php
-    echo "<p>Bienvenue a la Family League Arena!</p>";
-    echo "<p>Rejoignez le plus grand jeux de table</p>";
-    echo "<p>au monde</p>";
-    echo "<p>Qu'attendez vous!!</p>";
-    echo "<p>Bonjour en php!!</p>";
-    /*$maintenant = new DateTime();
-    $maintenant->setTimezone(new DateTimezone('Europe/Paris'));
-<<<<<<< HEAD
-    echo"<p>Nous sommes le".$maintenant-> format('d/m/Y')."</p>\n";*/
 
-    echo"<p>Nous sommes le".$maintenant-> format('d/m/Y')."</p>\n";
+     <form action="index_traitement.php" method="POST" >
+     votre nom:<input type="text" name="nom" ><br>
+     votre prenom:<input type="text" name="prenom" ><br>
+     votre age:<input type="number" name="age" ><br>
+      password:<input type="password" name="password" ><br>
+     <input type="submit" value="Envoyer !" ><br>
 
-    ?>
+
+
+ </form>
+
+
 
 </body>
 </html>

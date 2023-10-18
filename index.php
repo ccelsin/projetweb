@@ -11,7 +11,12 @@
       <p>Rejoignez le plus grand jeux de table</p>
       <p>au monde</p>
       <p>Qu'attendez vous!!</p>
-      <input type="submit" value="Commencez à jouer maintenant !" >
+      <form action="index_traitement.php" method="POST" >
+        <input type="submit" value="Commencez à jouer maintenant !" ><br>
+
+
+
+    </form>
     </main>
 
     
