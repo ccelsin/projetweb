@@ -4,7 +4,6 @@
 ?>
 
 <body>
-
     <main>
     <img src="/picture/fond d'écran app.png" >;
     <p>Bienvenue a la Family League Arena!</p>
@@ -13,6 +12,10 @@
     <p>Qu'attendez vous!!</p>
     <input type="submit" value="Commencez à jouer maintenant !" >
     </main>
+
+    <div class="main-page">
+      <p>d</p>
+    </div>
 </body>
 </html>
 

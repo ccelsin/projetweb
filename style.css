@@ -1,3 +1,7 @@
-main{
-    background-image: url(picture/background_web.jpg);
+.main-page{
+    background-image: url(background_web.jpg);
+    width: 100vw;
+    height: 100vh;
+    margin: 0;
+    padding: 0;
 }
