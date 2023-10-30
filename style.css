@@ -10,3 +10,8 @@ body{
     position: relative;
     margin-top: 100px;
 }
+
+.btn-bgg{
+    position: absolute;
+    top:0px;
+}
