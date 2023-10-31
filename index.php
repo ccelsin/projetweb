@@ -5,14 +5,34 @@
 ?>
 
   <body>
-      <main>
-            <p class="fs-1" style="margin-left:25px">Bienvenue à la <span class="text-primary"> Family League Arena! </span>  </p>
-            <p class="fs-3"><span class="text-primary">Rejoignez</span> le plus grand jeux de table</p>
-            <p class="text-primary fs-3">au monde</p>
-            <p class="text-primary fs-3">Qu'attendez vous!!</p>
+      <div class="container-fluid">
+          <div class="row">
+            <div class="col">
+              <img src="logo.png" alt="logo">
+            </div>
+          </div>
+          <div class="row" id="block1">
+            <div class="col-lg-8" id="block1-1">
+            <p class="fw-bold" style="margin-left:2.5vw; font-size:3.1rem;">Bienvenue à la <span class="text-primary"> Family League Arena! </span>  </p>
+              <p style="margin-left:12vw; font-size:2.3rem;"><span class="text-primary">Rejoignez</span> la plus grande table de jeux</p>
+              <p class="text-primary" style="margin-left:25vw; font-size:2.3rem;">au monde</p>
+              <p class="text-primary" style="margin-left:28vw; font-size:2.3rem; margin-top:5vh;">Qu'attendez vous!!</p>
+            </div>
+          </div>
+      </div>
+            <div class="row"> 
+             
+              
+              </div>
+            </div>
+          </div>
+              
+              
             
+          </div>
+        </div>
               <div class="container">
-                  <div class="row"  style="margin-top :80vh">
+                  <div class="row>
                     <div class="col-4"></div>
                     <div class="col-5"></div>
                       <div class="col">
@@ -26,7 +46,7 @@
 
             <div class="row">
               <p>
-                <br><br><br>
+               
               </p>
             </div>
             <div class="row ">
@@ -41,9 +61,7 @@
               </div>
 
               <div class="col-lg-1">
-              <p>
-                <br><br><br><br><br><br>
-              </p>
+              
               <img src="images/ecran.png" class=" img-fluid " id="monitor">
               </div>
 
@@ -51,10 +69,6 @@
               </div>
             </div>
 
-
-
-
-      </main>
 
   </body>
 

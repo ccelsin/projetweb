@@ -2,28 +2,18 @@
     $title_page = " page de connexion";
     include("header.inc.php");
 ?>
-<main>
 
-  <form action="accueil.php" method="POST" >
-  <div class="mb-3">
-  <label for="exampleFormControlInput1" class="form-label">Email address</label>
-  <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="name@example.com" required>
-</div>
-<div class="row g-3 align-items-center">
-  <div class="col-auto">
-    <label for="inputPassword6" class="col-form-label">Password</label>
-  </div>
-  <div class="col-auto">
-    <input type="password" id="inputPassword6" class="form-control" aria-describedby="passwordHelpInline" required>
-  </div>
-  <div class="col-auto">
-    <span id="passwordHelpInline" class="form-text">
-    </span>
-  </div>
-</div>
-  <div class="d-grid gap-2 col-6 mx-auto">
-  <button type="Se connecter" class="btn btn-outline-primary btn-lg">Se connecter</button>
-  </form>
+
+  <form class="form" action="accueil.php" method="POST" style="margin:50px;">
+    <div class="form-group">
+      <label for="email" class="form-label">Email address</label>
+      <input type="text" id="email" class="form-control" placeholder="name@example.com" required>
     </div>
-  
- </main>
+    <div class="form-group">
+      <label for="password" class="form-label">Password</label>
+      <input type="password" id="password" class="form-control" placeholder="name@example.com" required>
+    </div>
+    
+    <button type="Se connecter" class="btn btn-outline-primary btn-lg">Se connecter</button>
+  </form>
+    
