@@ -1,17 +1,49 @@
 
+
 <?php
     $title_page = "Page d'accueil ";
     include("header.inc.php");
 ?>
 
   <body>
-      <div class="container-fluid">
+  <nav class="navbar navbar-expand-md bg-dark border-bottom border-body" data-bs-theme="dark">
+  <div class="container-fluid">
+    <a class="navbar-brand fw-bold" href="index.php">Family League Arena</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarText">
+      <ul class="navbar-nav me-auto mb-lg-0">
+      <a class="navbar-brand" href="Liste_Jeux.php">Nos Jeux</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+        </ul>
+        <ul class="navbar-nav mb-lg-0">
+        <li class="nav-item">
+          <a class="nav-link" href="inscription.php">S'inscrire</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="connexion.php">Se connecter</a>
+        </li>
+</ul>
+    </div>
+  </div>
+</nav>
+
+     
+
+
+              </div>
+            </div>
+
+            <div class="container-fluid">
           <div class="row">
             <div class="col">
               <img src="logo.png" alt="logo">
             </div>
           </div>
-          <div class="row" id="block1">
+         <div  class="row" id="block1">
             <div class="col-lg-8" id="block1-1">
             <p class="fw-bold" style="margin-left:2.5vw; font-size:3.1rem;">Bienvenue à la <span class="text-primary"> Family League Arena! </span>  </p>
               <p style="margin-left:12vw; font-size:2.3rem;"><span class="text-primary">Rejoignez</span> la plus grande table de jeux</p>
@@ -36,7 +68,7 @@
                     <div class="col-4"></div>
                     <div class="col-5"></div>
                       <div class="col">
-                        <form action="index_traitement.php" method="POST" >
+                        <form action="inscription.php" method="POST" >
                           <input type="submit" value="Commencez à jouer maintenant !" ><br>
                         </form>
                       </div>
@@ -64,11 +96,6 @@
               
               <img src="images/ecran.png" class=" img-fluid " id="monitor">
               </div>
-
-
-              </div>
-            </div>
-
 
   </body>
 
