@@ -3,7 +3,6 @@
     include("header.inc.php");
 ?>
 
-
   <form class="form" action="espace_perso.php" method="POST" style="margin:50px;">
     <div class="form-group">
       <label for="email" class="form-label">Email address</label>

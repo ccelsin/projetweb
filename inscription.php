@@ -5,7 +5,7 @@
 <main>
  
   <div class="d-grid gap-2 col-6 mx-auto">
-  <form action="inscription1.php" method="POST" >
+    <form action="inscription1.php" method="POST" >
   <div>
     
     <div class="mb-3 row">
