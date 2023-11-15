@@ -1,5 +1,5 @@
 <?php
-    $title_page = " Espace Personnel";
+    $title_page = " Espace Administrateur";
     include("header.inc.php");
 ?>
 <nav class="navbar navbar-expand-md bg-dark border-bottom border-body" data-bs-theme="dark">
@@ -13,7 +13,6 @@
         <li><a class="dropdown-item" href="Add_Créneau.php">Ajouter Créneau</a></li>
       </ul>
     </li>
-  
   </div>
 </nav>
 

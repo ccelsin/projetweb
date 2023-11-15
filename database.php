@@ -3,7 +3,7 @@
     class Database{
 
         
-        private static $dbHost = "moduleweb.esigelec.fr";
+        private static $dbHost = "localhost";
         private static $dbName = "bdd_7_6";
         private static $dbUser = "grp_7_6";
         private static $dbUserPass = "hUQCb2PjHG4Z";
