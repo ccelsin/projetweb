@@ -21,7 +21,7 @@ if ($connexion->query($requete) === TRUE) {
 // Fermez la connexion à la base de données
 $connexion->close();
 
-$title_page = " page d'ajout de d'admin'";
+$title_page = " page d'ajout de Jeux";
     include("header.inc.php");
 ?>
 
