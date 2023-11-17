@@ -1,4 +1,6 @@
 <?php
+
+    
     $title_page = " page d'inscription'";
     include("header.inc.php");
 ?>
@@ -15,7 +17,7 @@
       <span id="passwordHelpInline" class="form-text">Must be 8-20 characters long.</span>
     </div>
   <div class="d-grid gap-2 col-4 mx-auto">
-  <button type="Commencez à jouer maintenant" class="btn btn-outline-primary btn-lg">Commencez à jouer maintenant</button>
+  <button type="submit" class="btn btn-outline-primary btn-lg">Commencez à jouer maintenant</button>
   </form>
     
   
