@@ -1,9 +1,35 @@
 <?php
     $title_page = " page de connexion";
-    include("header.inc.php");
+    
+
+    if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['Se connecter'])) {
+      $email = $_POST["email"];
+      $password = $_POST["password"];
+  
+      $requete = "SELECT * FROM utilisateurs WHERE email='$email'";
+      $resultat = $connexion->query($requete);
+  
+      if ($resultat->num_rows == 1) {
+          $utilisateurs = $resultat->fetch_assoc();
+          if (password_verify($password, $utilisateur["password"])) {
+              // Authentification réussie
+              if ($utilisateurs["privilégz"] == "Admin") {
+                  header("Location: espace_Admin.php");
+              } elseif ($utilisateurs["role"] == "membre") {
+                  header("Location: espace_perso.php");
+              } else {
+                  echo "Rôle non reconnu.";
+              }
+              exit();
+          } else {
+              echo "Mot de passe incorrect.";
+          }
+      } else {
+          echo "Aucun utilisateur trouvé avec cet email.";
+      }
+      include("header.inc.php");
     include 'database.php';
-
-
+  }
 
 ?>
 
