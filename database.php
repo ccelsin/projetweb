@@ -28,6 +28,4 @@
 
     }
 
-    Database::connect();
-
 ?>
