@@ -1,48 +1,35 @@
 <?php
-    //On vérifie si les champs existent et s'ils ont été remplis
-    if(isset($_POST["nom"],$_POST["prenom"]) && !empty($_POST["nom"]) && !empty($_POST["prenom"])){
-
-      $firstname = strip_tags($_POST["nom"]);
-      $lastname = strip_tags($_POST["prenom"]);
-
-      //On enregistre les premières informations dans la base de données
-
-      require_once"database.php";
-      $db = Database::connect();
-      $sql = "INSERT INTO `utilisateurs` (`id`, `first_name`, `last_name`, `email`, `password`, `avatar`, `privilège`) VALUES (NULL, ':firstname', ':lastname', '', '', '', 'membre')";
-      $statement = $db->prepare($sql);
-      $statement->bindValue(":firstname", $firstname, PDO::PARAM_STR);
-      $statement->bindValue(":lastname", $lastname, PDO::PARAM_STR);
-      $statement->execute();
-
-    }else{
-      //die("Le formulaire est imcomplet");
-    }
-
-
-    $title_page = " page de renseignement";
-
+session_start();
+    $title_page = " Page d'inscription";
     include("header.inc.php");
 ?>
- 
-  <div class="d-grid gap-2 col-6 mx-auto">
-    <form action="inscription1.php" method="POST" >
-      <div>
+
+<div class="d-grid gap-2 col-6 mx-auto">
+    <form action="tt_inscription.php" method="POST" >
         <div class="mb-3 row">
-          <label for="nom" class="col-sm-2 col-form-label">nom</label>
-          <div class="col-sm-10">
-             <input type="text" name="nom" class="form-control" required>
-          </div>
+            <label for="nom" class="col-sm-2 col-form-label">Nom</label>
+            <div class="col-sm-10">
+                <input type="text" name="nom" class="form-control" placeholder="Votre nom..." required>
+            </div>
         </div>
         <div class="mb-3 row">
-          <label for="prenom" class="col-sm-2 col-form-label">prenom</label>
-          <div class="col-sm-10">
-            <input type="text" name="prenom" class="form-control" required>
-          </div>
+            <label for="prenom" class="col-sm-2 col-form-label">Prénom</label>
+            <div class="col-sm-10">
+                <input type="text" name="prenom" class="form-control" placeholder="Votre prénom..."required>
+            </div>
         </div>
-       
-      </div>
-      <button type="submit" class="btn btn-outline-primary btn-lg">Suivant</button>
+        <div class="form-group">
+            <label for="email" class="form-label">Email address</label>
+            <input type="text" name="email" id="email" class="form-control" placeholder="name@example.com" required>
+        </div>
+        <div class="form-group">
+            <label for="password" class="form-label">Password</label>
+            <input type="password" name="password" id="password" class="form-control" placeholder="*******" required>
+            <span id="passwordHelpInline" class="form-text">Must be 8-20 characters long.</span>
+        </div>
+        <div class="d-grid gap-2 col-4 mx-auto">
+        </div>
+        <button type="submit" class="btn btn-outline-primary btn-lg">Confirmer</button>
     </form>
-  </div>
+</div>
 
