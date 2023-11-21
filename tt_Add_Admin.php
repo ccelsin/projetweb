@@ -6,7 +6,7 @@
   $prenom = htmlentities($_POST['prenom']);
   $email =  htmlentities($_POST['email']);
   $password = htmlentities($_POST['password']);
-  $statut = 0; 
+  $role = 1; 
 
   // Option pour bcrypt
   $options = [
@@ -22,9 +22,8 @@
   }
 else{
 // Attention, ici on ne vérifie pas si l'utilisateur existe déjà
-if ($stmt = $con->query("INSERT INTO utilisateurs(nom, prenom, email, mdp, statut) VALUES ('$nom','$prenom', '$email', '$password', '$statut')")) {
-  //$password = password_hash($password, PASSWORD_BCRYPT, $options);
-  
+if ($stmt = $con->query("INSERT INTO utilisateurs(nom, prenom, email, mdp, statut) VALUES ('$nom','$prenom', '$email', '$password', '$role')")) {
+    //$password = password_hash($password, PASSWORD_BCRYPT, $options);
     // Le message est mis dans la session, il est préférable de séparer message normal et message d'erreur.
     if($stmt) {
        
@@ -41,7 +40,7 @@ if ($stmt = $con->query("INSERT INTO utilisateurs(nom, prenom, email, mdp, statu
           <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
         </div>
         <div class="toast-body">
-          Génial!! Vous venez de créer votre compte. Vous pouvez vous connecter et accéder aux jeux!
+          Administrateur créée avec succès
         </div>
       </div>';
    
@@ -59,7 +58,7 @@ if ($stmt = $con->query("INSERT INTO utilisateurs(nom, prenom, email, mdp, statu
         }, 200);
      
         setTimeout(function () {
-            window.location.href = 'connexion.php';
+            window.location.href = 'espace_Admin.php';
           }, 4000);
       </script>";
 

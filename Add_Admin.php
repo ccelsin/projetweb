@@ -5,7 +5,7 @@
 <main>
  
   <div class="d-grid gap-2 col-6 mx-auto">
-    <form action="espace_Admin.php" method="POST" >
+    <form action="tt_Add_Admin.php" method="POST" >
   <div>
     
     <div class="mb-3 row">
@@ -32,12 +32,7 @@
       <input type="Password" class="form-control" Password ="Password" required>
     </div>
   </div>
-  <div class="mb-3 row">
-    <label for="numéro" class="col-sm-2 col-form-label">Contact</label>
-    <div class="col-sm-10">
-      <input type="numéro" class="form-control" Contact ="numéro" required>
-    </div>
-  </div>
+  
      
   </div>
   <button type="Suivant" class="btn btn-outline-primary btn-lg">Suivant</button>

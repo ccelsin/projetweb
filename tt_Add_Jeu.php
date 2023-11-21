@@ -2,11 +2,11 @@
   session_start(); // Pour les messages
 
   // Contenu du formulaire :
-  $nom =  htmlentities($_POST['nom']);
-  $prenom = htmlentities($_POST['prenom']);
-  $email =  htmlentities($_POST['email']);
-  $password = htmlentities($_POST['password']);
-  $statut = 0; 
+  $nom =  htmlentities($_POST['name']);
+  $description = htmlentities($_POST['description']);
+  $rules =  htmlentities($_POST['rules']);
+  $max_Joueurs = htmlentities($_POST['max_Joueurs']);
+  $Photos = htmlentities($_POST['photos']); 
 
   // Option pour bcrypt
   $options = [
@@ -22,9 +22,8 @@
   }
 else{
 // Attention, ici on ne vérifie pas si l'utilisateur existe déjà
-if ($stmt = $con->query("INSERT INTO utilisateurs(nom, prenom, email, mdp, statut) VALUES ('$nom','$prenom', '$email', '$password', '$statut')")) {
-  //$password = password_hash($password, PASSWORD_BCRYPT, $options);
-  
+if ($stmt = $con->query("INSERT INTO Jeux(name, description, rules, max_Joueurs, photos) VALUES ('$nom','$description', '$rules', '$max_Joueurs', '$photos')")) {
+    //$password = password_hash($password, PASSWORD_BCRYPT, $options);
     // Le message est mis dans la session, il est préférable de séparer message normal et message d'erreur.
     if($stmt) {
        
@@ -41,7 +40,7 @@ if ($stmt = $con->query("INSERT INTO utilisateurs(nom, prenom, email, mdp, statu
           <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
         </div>
         <div class="toast-body">
-          Génial!! Vous venez de créer votre compte. Vous pouvez vous connecter et accéder aux jeux!
+          Jeu créé avec succès!
         </div>
       </div>';
    
@@ -78,7 +77,7 @@ if ($stmt = $con->query("INSERT INTO utilisateurs(nom, prenom, email, mdp, statu
           <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
         </div>
         <div class="toast-body">
-          Cet utilisateur existe deja!
+          Ce Jeu existe deja!
         </div>
       </div>';
    
