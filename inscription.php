@@ -8,15 +8,11 @@ session_start();
     <form action="tt_inscription.php" method="POST" >
         <div class="mb-3 row">
             <label for="nom" class="col-sm-2 col-form-label">Nom</label>
-            <div class="col-sm-10">
-                <input type="text" name="nom" class="form-control" placeholder="Votre nom..." required>
-            </div>
+            <input type="text" name="nom" class="form-control" placeholder="Votre nom..." required>
         </div>
         <div class="mb-3 row">
             <label for="prenom" class="col-sm-2 col-form-label">Prénom</label>
-            <div class="col-sm-10">
-                <input type="text" name="prenom" class="form-control" placeholder="Votre prénom..."required>
-            </div>
+            <input type="text" name="prenom" class="form-control" placeholder="Votre prénom..."required>
         </div>
         <div class="form-group">
             <label for="email" class="form-label">Email address</label>
