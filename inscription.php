@@ -6,11 +6,11 @@ session_start();
 
 <div class="d-grid gap-2 col-6 mx-auto">
     <form action="tt_inscription.php" method="POST" >
-        <div class="mb-3 row">
+        <div class="form-group">
             <label for="nom" class="col-sm-2 col-form-label">Nom</label>
             <input type="text" name="nom" class="form-control" placeholder="Votre nom..." required>
         </div>
-        <div class="mb-3 row">
+        <div class="form-group">
             <label for="prenom" class="col-sm-2 col-form-label">Prénom</label>
             <input type="text" name="prenom" class="form-control" placeholder="Votre prénom..."required>
         </div>
