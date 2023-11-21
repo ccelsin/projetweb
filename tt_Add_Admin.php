@@ -13,7 +13,7 @@
         'cost' => 12,
   ];
 
-  // Connexion :
+  // Connexion 
   require_once("database1.php");
   $con = new mysqli($host, $login, $passwd, $dbname);
   if ($con->connect_error) {
