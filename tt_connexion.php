@@ -17,8 +17,8 @@ if ($con->connect_error) {
 }
  
 // Préparation de la requête SQL
-if ($stmt = $con->prepare("SELECT * FROM utilisateurs WHERE email=? LIMIT 1")) {
-    $stmt->bind_param("s", $email);
+if ($stmt = $con->prepare("SELECT * FROM utilisateurs WHERE email=? AND mdp=? LIMIT 1")) {
+    $stmt->bind_param("ss", $email,$password);
     $stmt->execute();
  
     // Vérifier s'il y a des erreurs dans la requête
@@ -29,7 +29,7 @@ if ($stmt = $con->prepare("SELECT * FROM utilisateurs WHERE email=? LIMIT 1")) {
     $result = $stmt->get_result();
  
     // Vérifier s'il y a des résultats
-    if ($result->num_rows > 0) {
+    if ($result->num_rows == 1) {
         $row = $result->fetch_assoc();
  
         // Vérifier le mot de passe avec password_verify
