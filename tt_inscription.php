@@ -39,7 +39,7 @@ if ($con->connect_error) {
         <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
       </div>
       <div class="toast-body">
-        Cet utilisateur existe deja!
+      Utilisateur existant  déjà.!
       </div>
     </div>';
  
@@ -60,47 +60,54 @@ if ($con->connect_error) {
           window.location.href = 'index.php';
         }, 4000);
     </script>";
-    } else {
-        // L'utilisateur n'existe pas, ajouter à la base de données
-        $hashedPassword = password_hash($password, PASSWORD_BCRYPT, $options);
-        $insertUserQuery = "INSERT INTO utilisateurs(nom, prenom, email, mdp, statut) VALUES ('$nom','$prenom', '$email', '$hashedPassword', '$statut')";
+    }  else {
+      // Hacher le mot de passe
+      $hashedPassword = password_hash($password, PASSWORD_DEFAULT);
 
+      // Insérer l'utilisateur avec le mot de passe haché
+      $insertUserQuery = "INSERT INTO utilisateurs (nom,prenom,email,mdp,statut) values ('$nom','$prenom','$email','$hashedPassword','$statut')";
 
-            echo ' <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet"
-            integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
-       
-       
-          <script src="../js/bootstrap.min.js"></script>';
-       
-            echo '<div id="bienvenue-toast" class="toast position-fixed top-50 start-50 translate-middle" role="alert" aria-live="assertive" aria-atomic="true">
-            <div class="toast-header">
-              <strong class="me-auto">Notification</strong>
-              <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
-            </div>
-            <div class="toast-body">
-              Génial!! Vous venez de créer votre compte. Vous pouvez vous connecter et accéder aux jeux!
-            </div>
-          </div>';
-       
-            echo ' <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"></script>';
-       
-       
-            echo "<script>
-            // Affiche le toast de bienvenue après 1 seconde
-       
-            setTimeout(function () {
-              var bienvenueToast = new bootstrap.Toast(document.getElementById('bienvenue-toast'));
-              bienvenueToast.show();
-              toast.hide();
-       
-            }, 200);
-         
-            setTimeout(function () {
-                window.location.href = 'connexion.php';
-              }, 4000);
-          </script>";
-        } 
-    }
+      if ($con->query($insertUserQuery) === TRUE) {
+        echo ' <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+   
+   
+      <script src="../js/bootstrap.min.js"></script>';
+   
+        echo '<div id="bienvenue-toast" class="toast position-fixed top-50 start-50 translate-middle" role="alert" aria-live="assertive" aria-atomic="true">
+        <div class="toast-header">
+          <strong class="me-auto">Notification</strong>
+          <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+        </div>
+        <div class="toast-body">
+          Génial!! Vous venez de créer votre compte. Vous pouvez vous connecter et accéder aux jeux!
+        </div>
+      </div>';
+   
+        echo ' <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"></script>';
+   
+   
+        echo "<script>
+        // Affiche le toast de bienvenue après 1 seconde
+   
+        setTimeout(function () {
+          var bienvenueToast = new bootstrap.Toast(document.getElementById('bienvenue-toast'));
+          bienvenueToast.show();
+          toast.hide();
+   
+        }, 200);
+     
+        setTimeout(function () {
+            window.location.href = 'connexion.php';
+          }, 4000);
+      </script>";
+      } else {
+          echo "Erreur lors de l'inscription : " . $con->error;
+      }
+  }
+}
+
+$con->close();
 
 ?>
 
@@ -118,3 +125,5 @@ if ($con->connect_error) {
     <link rel="stylesheet" href="style.css">
 </body>
 </html>
+
+
