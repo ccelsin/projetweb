@@ -2,10 +2,11 @@
 session_start(); // Pour les messages
  
 // Contenu du formulaire$id = htmlentities($_POST['Id']);
+$jeu_photos = $_FILES['imageJeu']['name'];
 $nom = htmlentities($_POST['nom']);
 $categorie = htmlentities($_POST['categorie']);
 $regle = $_FILES['pdfDocument']['name'];
-$jeu_photos = $_FILES['imageJeu']['name'];
+
  
 $uploadImage = "../projetweb/images/".$jeu_photos;
 $uploadPDF = "../projetweb/docpdf/".$regle;
@@ -21,7 +22,7 @@ if ($con->connect_error) {
 }
  
 // Attention, ici on ne vérifie pas si l'utilisateur existe déjà
-if ($stmt = $con->prepare("INSERT INTO jeu( nom, categorie, regle, images) VALUES ( ?, ?, ?, ?)")) {
+if ($stmt = $con->prepare("INSERT INTO jeu( images, nom, categorie, regle,) VALUES ( ?, ?, ?, ?)")) {
     // Correction : Pas besoin d'utiliser password_hash ici, car vous n'ajoutez pas un mot de passe
     $stmt->bind_param("ssss",  $nom, $categorie, $regle, $jeu_photos);
    

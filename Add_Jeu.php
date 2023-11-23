@@ -15,6 +15,12 @@ $title_page = " Espace Administrateur";
                     <h2  class="text-center">Ajouter un jeu</h2>
                     <form method="POST" action="tt_Add_Jeu.php" enctype="multipart/form-data">
                         <div class="container">
+                             <div class="row">
+                                <div class="col-md-6">
+                                    <label for="formFileMultiple" class="form-label" >Image du jeu</label>
+                                    <input type="file" class="form-control" id="imageJeu" name="imageJeu" accept="image/*" required>
+                                </div>
+                            </div>
                             <div class="row my-3">
                                 <div class="col-md-6">
                                     <label for="nom" class="form-label" >Nom du jeu</label>
@@ -31,12 +37,7 @@ $title_page = " Espace Administrateur";
                                     <input type="file" class="form-control" id="pdfDocument" name="pdfDocument" accept=".pdf" required>
                                 </div>
                             </div>
-                            <div class="row">
-                                <div class="col-md-6">
-                                    <label for="formFileMultiple" class="form-label" >Image du jeu</label>
-                                    <input type="file" class="form-control" id="imageJeu" name="imageJeu" accept="image/*" required>
-                                </div>
-                            </div>
+                           
                             <div class="row my-3">
                                 <div class="d-grid gap-2 d-md-block"><button class="btn btn-outline-primary" type="submit" >Ajouter le jeu</button></div>  
                             </div>
