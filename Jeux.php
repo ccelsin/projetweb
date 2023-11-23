@@ -1,55 +1,111 @@
 <?php
 session_start();
-$titre = "Jeux";
+$title_page = " Liste des Jeux";
 include 'database1.php';
-
+include'header.inc.php';
+require_once("roleadmin.php");
 ?>
 
-<html>
+<nav class="navbar navbar-expand-md bg-dark border-bottom border-body" data-bs-theme="dark">
+  <div class="container-fluid">
+  <ul class="nav nav-pills">
+  <li class="nav-item dropdown">
+      <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown"  role="button" aria-expanded="false">Ajouter </a>
+      <ul class="dropdown-menu">
+        <li><a class="dropdown-item" href="Add_Admin.php" style="font-color:white">Ajouter Admin</a></li>
+        <li><a class="dropdown-item" href="Add_Jeu.php">Ajouter Jeu</a></li>
+        <li><a class="dropdown-item" href="Add_Créneau.php">Ajouter Créneau</a></li>
+      </ul>
+    </li>
+    </ul> 
+    <div class="collapse navbar-collapse" id="navbarText">
+      <ul class="navbar-nav me auto mb-lg-0">
+      <a class="navbar-brand fw_bold" href="Jeux.php">Liste Jeux</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+        </ul>
+    <div class="collapse navbar-collapse" id="navbarText">
+      <ul class="navbar-nav me auto mb-lg-0">
+      <a class="navbar-brand" href="Liste_membres.php">Liste Membres</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+        </ul>
+        <ul class="navbar-nav me-auto mb-lg-0">
+        <a class="navbar-brand" href="List_souhaits.php">Liste souhaits</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+      
+    <a class="navbar-brand" href="PlanningAdmin.php">Planning</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+        </ul>
+        <ul class="navbar-nav mb-lg-0">
+        <a class="navbar-brand" href="notifications.php">Notifications</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+        
+    <a class="navbar-brand" href="InfosAdmin.php">Mes infos</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <a class="navbar-brand" href="index.php">Se déconnecter</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+</ul>
+      </ul>
+    </div>
+  </div>
+</nav>
 
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE-edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="fd-2.css">
-</head>
 
-<body>
-    <section class="home">
+
+
+    
         <div class="container text-center">
             <?php
             // Connexion à la base de données
-            require_once("param.inc.php");
-            $mysqli = new mysqli($host, $login, $passwd, $dbname);
-            if ($mysqli->connect_error) {
-                die('Erreur de connexion (' . $mysqli->connect_errno . ') ' . $mysqli->connect_error);
+            require_once("database1.php");
+            $con = new mysqli($host, $login, $passwd, $dbname);
+            if ($con->connect_error) {
+                die('Erreur de connexion (' . $con->connect_errno . ') ' . $con->connect_error);
             }
 
             // Requête SELECT pour récupérer les jeux
-            $result = $mysqli->query("SELECT  images,  nom, categorie, regle,  FROM jeu");
+            $result = $con->query("SELECT  images,  nom, categorie, regle FROM jeu;");
 
             if ($result) {
                 // Afficher les jeux s'il y en a
                 if ($result->num_rows > 0) {
                     echo '<h2>Liste des Jeux</h2>';
                     echo '<table class="table mx-auto" style="color: black;">';
-                    echo '<tr><th>Nom</th><th>Catégorie</th><th>Règles</th><th>Image</th></tr>';
+                    echo '<tr>
+                    <th>Images</th>
+                    <th>Nom</th>
+                    <th>Catégorie</th> <th>Règles</th>
+                    <th>Modifications</th>
+                    <th>suppression</th>
+                    </tr>';
 
                     while ($row = $result->fetch_assoc()) {
+                      echo '<tr>';
                         echo '<td><img src="../projetweb/images/' . $row['images'] . '" alt="Image du jeu"></td>';
-                        echo '<tr>';
                         echo '<td>' . $row['nom'] . '</td>';
                         echo '<td>' . $row['categorie'] . '</td>';
                         echo '<td><a href="../projetweb/docpdf/' . $row['regle'] .'" download>Télécharger PDF</a></td>';
                         echo '<td>
-                                    <form method="POST" action="tt_mod_Jeu.php">
+                                    <form method="POST" action="Mod_Jeu.php">
                                         <input type="hidden" name="game_id" value="' . $row['nom'] . '">
                                         <button class="btn btn-primary" type="submit">Modifier</button>
                                     </form>
                                 </td>';
                         echo '<td> 
-                                    <form method="POST" action="tt_delete_Jeu.php">
+                                    <form method="POST" action="Delete_Jeu.php">
                                         <input type="hidden" name="game_id" value="' . $row['nom'] . '">
                                         <button class="btn btn-primary" type="submit">Supprimer</button>
                                     </form>
@@ -65,18 +121,12 @@ include 'database1.php';
                 // Libérer le résultat
                 $result->free();
             } else {
-                echo 'Erreur lors de la récupération des jeux : ' . $mysqli->error;
+                echo 'Erreur lors de la récupération des jeux : ' . $con->error;
             }
 
             // Fermer la connexion à la base de données
-            $mysqli->close();
+            $con->close();
             ?>
         </div>
-    </section>
-</body>
+    
 
-</html>
-
-<?php
-include 'footer.inc.php';
-?>

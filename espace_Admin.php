@@ -1,6 +1,10 @@
 <?php
     $title_page = " Espace Administrateur";
     include("header.inc.php");
+
+session_start();
+require_once("roleadmin.php");
+
 ?>
 <nav class="navbar navbar-expand-md bg-dark border-bottom border-body" data-bs-theme="dark">
   <div class="container-fluid">
@@ -14,6 +18,13 @@
       </ul>
     </li>
     </ul> 
+    <div class="collapse navbar-collapse" id="navbarText">
+      <ul class="navbar-nav me auto mb-lg-0">
+      <a class="navbar-brand" href="Jeux.php">Liste Jeux</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+        </ul>
     <div class="collapse navbar-collapse" id="navbarText">
       <ul class="navbar-nav me auto mb-lg-0">
       <a class="navbar-brand" href="Liste_membres.php">Liste Membres</a>

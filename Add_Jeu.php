@@ -2,6 +2,8 @@
 $title_page = " Espace Administrateur";
     $titre = "Ajouter jeux";
     include 'header.inc.php';
+    session_start();
+require_once("roleadmin.php");
 ?>
 <html>
             <head>
