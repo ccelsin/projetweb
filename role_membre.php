@@ -37,7 +37,7 @@
       <span class="navbar-toggler-icon"></span>
     </button>
         
-    <a class="navbar-brand" href="deconnexion.php">Se déconnecter</a>
+    <a class="navbar-brand" href="index.php">Se déconnecter</a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
