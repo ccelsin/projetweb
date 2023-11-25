@@ -1,27 +1,29 @@
 <?php
 session_start(); // Pour les messages
+require_once("roleAdmin.php");
 
-// Connexion :
+// Connexion à la base de données
 require_once("database1.php");
 $con = new mysqli($host, $login, $passwd, $dbname);
+
+// Vérifier la connexion
 if ($con->connect_error) {
     die('Erreur de connexion (' . $con->connect_errno . ') ' . $con->connect_error);
-}
+} else {
+    // Supprimer le jeu de la base de données
+    if (isset($_GET['id'])) {
+        $id = $_GET['id'];
 
-$name = htmlentities($_POST['name']);
+        $sql = "DELETE FROM jeu WHERE id = '$id'";
 
-// Supprimer le jeu de la base de données
-if ($stmt = $con->prepare("DELETE FROM jeu WHERE nom=?")) {
-    $stmt->bind_param("s", $name);
-    
-    // Exécute la suppression
-    if ($stmt->execute()) {
-        // Affiche un message de succès
-        echo ' <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet"
+        // Exécute la suppression
+        if ($con->query($sql)) {
+            // Affiche un message de succès
+            echo ' <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
    
    
-        <script src="../js/bootstrap.min.js"></script>';
+      <script src="../js/bootstrap.min.js"></script>';
    
         echo '<div id="bienvenue-toast" class="toast position-fixed top-50 start-50 translate-middle" role="alert" aria-live="assertive" aria-atomic="true">
         <div class="toast-header">
@@ -29,11 +31,12 @@ if ($stmt = $con->prepare("DELETE FROM jeu WHERE nom=?")) {
           <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
         </div>
         <div class="toast-body">
-          Le Jeu ' . $name . ' est supprimé!
+          Génial!! Le Jeu a été supprimé avec succès!
         </div>
       </div>';
    
         echo ' <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"></script>';
+   
    
         echo "<script>
         // Affiche le toast de bienvenue après 1 seconde
@@ -41,7 +44,7 @@ if ($stmt = $con->prepare("DELETE FROM jeu WHERE nom=?")) {
         setTimeout(function () {
           var bienvenueToast = new bootstrap.Toast(document.getElementById('bienvenue-toast'));
           bienvenueToast.show();
-          bienvenueToast.hide(); // Correction : utilise bienvenueToast au lieu de toast
+          toast.hide();
    
         }, 200);
      
@@ -49,13 +52,13 @@ if ($stmt = $con->prepare("DELETE FROM jeu WHERE nom=?")) {
             window.location.href = 'espace_Admin.php';
           }, 4000);
       </script>";
-    } else {
-        // Affiche un message d'échec
-        echo ' <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet"
+        } else {
+            // Affiche un message d'échec
+            echo ' <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
    
    
-        <script src="../js/bootstrap.min.js"></script>';
+      <script src="../js/bootstrap.min.js"></script>';
    
         echo '<div id="bienvenue-toast" class="toast position-fixed top-50 start-50 translate-middle" role="alert" aria-live="assertive" aria-atomic="true">
         <div class="toast-header">
@@ -63,11 +66,12 @@ if ($stmt = $con->prepare("DELETE FROM jeu WHERE nom=?")) {
           <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
         </div>
         <div class="toast-body">
-          Échec lors de la suppression du jeu!
+          erreur lors de la suppression!
         </div>
       </div>';
    
         echo ' <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"></script>';
+   
    
         echo "<script>
         // Affiche le toast de bienvenue après 1 seconde
@@ -75,7 +79,7 @@ if ($stmt = $con->prepare("DELETE FROM jeu WHERE nom=?")) {
         setTimeout(function () {
           var bienvenueToast = new bootstrap.Toast(document.getElementById('bienvenue-toast'));
           bienvenueToast.show();
-          bienvenueToast.hide(); // Correction : utilise bienvenueToast au lieu de toast
+          toast.hide();
    
         }, 200);
      
@@ -83,12 +87,31 @@ if ($stmt = $con->prepare("DELETE FROM jeu WHERE nom=?")) {
             window.location.href = 'espace_Admin.php';
           }, 4000);
       </script>";
+        }
     }
 
-    // Fermer le statement
-    $stmt->close();
+    // Fermer la connexion à la base de données
+    $con->close();
 }
-
-// Fermer la connexion à la base de données
-$con->close();
 ?>
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN"
+        crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+        crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="style.css">
+</body>
+
+</html>

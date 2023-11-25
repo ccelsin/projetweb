@@ -77,7 +77,7 @@ require_once("roleadmin.php");
             }
 
             // Requête SELECT pour récupérer les jeux
-            $result = $con->query("SELECT  images,  nom, categorie, regle FROM jeu;");
+            $result = $con->query("SELECT  id, images,  nom, categorie, regle FROM jeu;");
 
             if ($result) {
                 // Afficher les jeux s'il y en a
@@ -98,18 +98,8 @@ require_once("roleadmin.php");
                         echo '<td>' . $row['nom'] . '</td>';
                         echo '<td>' . $row['categorie'] . '</td>';
                         echo '<td><a href="../projetweb/docpdf/' . $row['regle'] .'" download>Télécharger PDF</a></td>';
-                        echo '<td>
-                                    <form method="POST" action="Mod_Jeu.php">
-                                        <input type="hidden" name="game_id" value="' . $row['nom'] . '">
-                                        <button class="btn btn-primary" type="submit">Modifier</button>
-                                    </form>
-                                </td>';
-                        echo '<td> 
-                                    <form method="POST" action="Delete_Jeu.php">
-                                        <input type="hidden" name="game_id" value="' . $row['nom'] . '">
-                                        <button class="btn btn-primary" type="submit">Supprimer</button>
-                                    </form>
-                                </td>';
+                        echo "<td><a href=' tt_delete_Jeu.php?id=" . $row['id'] . "'>Supprimer</a></td>";
+                        echo "<td><a href=' tt_mod_Jeu.php?id=" . $row['id'] . "'>Modifier</a></td>";        
                         echo '</tr>';
                     }
 
@@ -129,4 +119,3 @@ require_once("roleadmin.php");
             ?>
         </div>
     
-
