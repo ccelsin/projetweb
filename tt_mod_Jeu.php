@@ -1,16 +1,18 @@
 <?php
 session_start(); // Pour les messages
 
+require_once("roleadmin.php");
 // Connexion à la base de données
-require_once("param.inc.php");
+require_once("database1.php");
 $con = new mysqli($host, $login, $passwd, $dbname);
 if ($con->connect_error) {
     die('Erreur de connexion (' . $con->connect_errno . ') ' . $con->connect_error);
 }
 
 if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['modifier'])) {
+    $name = htmlentities($_POST['name']);
     $jeu_photos = $_FILES['imageJeu']['name'];
-    $nouveauNom = htmlentities($_POST['nameJ']);
+    $nouveauNom = htmlentities($_POST['name']);
     $nouvelleCategorie = htmlentities($_POST['nouvelleCategorie']);
     $regle = $_FILES['pdfDocument']['name'];
    
@@ -21,9 +23,9 @@ move_uploaded_file($_FILES['imageJeu']['tmp_name'], $uploadImage);
 move_uploaded_file($_FILES['pdfDocument']['tmp_name'], $uploadPDF);
     // Vérifier si le jeu avec l'ID spécifié existe
     if ($stmtCheckExistence = $con->prepare("SELECT name FROM jeu WHERE name=?")) {
-        $stmtCheckExistence->bind_param("s", $nouveauNom);
-        $stmtCheckExistence->execute();
-        $stmtCheckExistence->store_result();
+      $stmtCheckExistence->bind_param("s", $name);
+      $stmtCheckExistence->execute();
+      $stmtCheckExistence->store_result();
 
         // Si le jeu n'existe pas, rediriger ou afficher un message d'erreur
         if ($stmtCheckExistence->num_rows == 0) {
@@ -39,7 +41,7 @@ move_uploaded_file($_FILES['pdfDocument']['tmp_name'], $uploadPDF);
               <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
             </div>
             <div class="toast-body">
-             Le Jeu'$name'est inexistant!
+             Le Jeu $name est inexistant!
             </div>
           </div>';
        
@@ -67,8 +69,8 @@ move_uploaded_file($_FILES['pdfDocument']['tmp_name'], $uploadPDF);
     }
 
     // Mettre à jour les informations du jeu dans la base de données
-    if ($stmt = $mysqli->prepare("UPDATE jeu SET images=?, nom=?, categorie=?, regle=?,  WHERE nom=?")) {
-        $stmt->bind_param("ssss", $nouveauNom, $nouvelleCategorie, $regle, $jeu_photos, );
+    if ($stmt = $con->prepare("UPDATE jeu SET images=?, nom=?, categorie=?, regle=?,  WHERE nom=?")) {
+        $stmt->bind_param("ssss", $nouveauNom, $nouvelleCategorie, $regle, $jeu_photos);
 
 
         // Exécuter la mise à jour
@@ -85,7 +87,7 @@ move_uploaded_file($_FILES['pdfDocument']['tmp_name'], $uploadPDF);
               <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
             </div>
             <div class="toast-body">
-              Le Jeu '$name' est modifié avec succès!
+              Le Jeu $name est modifié avec succès!
             </div>
           </div>';
        
@@ -119,7 +121,7 @@ move_uploaded_file($_FILES['pdfDocument']['tmp_name'], $uploadPDF);
               <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
             </div>
             <div class="toast-body">
-              Echec de la modification du jeu '$name'!
+              Echec de la modification du jeu $name!
             </div>
           </div>';
        
@@ -139,7 +141,8 @@ move_uploaded_file($_FILES['pdfDocument']['tmp_name'], $uploadPDF);
             setTimeout(function () {
                 window.location.href = 'espace_Admin.php';
               }, 4000);
-          </script>"; . $stmt->error;
+          </script>"
+           . $stmt->error;
         }
 
         // Fermer le statement
@@ -177,12 +180,13 @@ move_uploaded_file($_FILES['pdfDocument']['tmp_name'], $uploadPDF);
         setTimeout(function () {
             window.location.href = 'espace_Admin.php';
           }, 4000);
-      </script>"; . $con->error;
+      </script>"
+       . $con->error;
     }
 }
 
 // Fermer la connexion à la base de données
-$mysqli->close();
+$con->close();
 
 // Redirection vers la page d'accueil par exemple :
 header('Location: espace_Admin.php');

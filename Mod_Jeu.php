@@ -2,7 +2,7 @@
 session_start();
 $titre = "Modifier un jeu";
 include 'header.inc.php';
-session_start();
+
 require_once("roleadmin.php");
 ?>
 <html>
@@ -20,7 +20,13 @@ require_once("roleadmin.php");
     <h2 class="text-center">Modifier un jeu</h2>
     <form method="POST" action="tt_Mod_Jeu.php" enctype="multipart/form-data">
         <div class="container">
-            
+            </div>
+            <div class="row my-3">
+                <div class="col-md-6">
+                    <label for="nouveauNom" class="form-label">nom du jeu</label>
+                    <input type="text" class="form-control" id="name" name="name" placeholder=" nom du jeu à modifier" required>
+                </div>
+            </div>
             <div class="row my-3">
                 <div class="col-md-6">
                     <label for="nouveauNom" class="form-label">Nouveau nom du jeu</label>
