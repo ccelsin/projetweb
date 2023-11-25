@@ -19,6 +19,13 @@ require_once("roleadmin.php");
     </ul> 
     <div class="collapse navbar-collapse" id="navbarText">
       <ul class="navbar-nav me auto mb-lg-0">
+      <a class="navbar-brand" href="Jeux.php">Liste Jeux</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+        </ul>
+    <div class="collapse navbar-collapse" id="navbarText">
+      <ul class="navbar-nav me auto mb-lg-0">
       <a class="navbar-brand" href="Liste_membres.php">Liste Membres</a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
@@ -30,7 +37,7 @@ require_once("roleadmin.php");
       <span class="navbar-toggler-icon"></span>
     </button>
       
-    <a class="navbar-brand fw-bold" href="PlanningAdmin.php">Planning</a>
+    <a class="navbar-brand fw-bold " href="PlanningAdmin.php">Planning</a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
@@ -40,21 +47,3 @@ require_once("roleadmin.php");
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
-        
-    <a class="navbar-brand" href="Infos.php">Mes infos</a>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-        
-</ul>
-<ul class="navbar-nav mb-lg-0">
-        <li class="nav-item">
-
-          <a class="nav-link " href="deconnexion.php">Déconnexion</a>
-        </li>
-
-      </ul>
-    </div>
-  </div>
-</nav>
-

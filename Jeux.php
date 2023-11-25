@@ -20,7 +20,7 @@ require_once("roleadmin.php");
     </ul> 
     <div class="collapse navbar-collapse" id="navbarText">
       <ul class="navbar-nav me auto mb-lg-0">
-      <a class="navbar-brand fw_bold" href="Jeux.php">Liste Jeux</a>
+      <a class="navbar-brand fw-bold" href="Jeux.php">Liste Jeux</a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
@@ -48,21 +48,6 @@ require_once("roleadmin.php");
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
-        
-    <a class="navbar-brand" href="InfosAdmin.php">Mes infos</a>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <a class="navbar-brand" href="index.php">Se déconnecter</a>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-</ul>
-      </ul>
-    </div>
-  </div>
-</nav>
-
 
 
 
