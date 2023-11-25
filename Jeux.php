@@ -88,8 +88,8 @@ require_once("roleadmin.php");
                     <th>Images</th>
                     <th>Nom</th>
                     <th>Catégorie</th> <th>Règles</th>
-                    <th>Modifications</th>
-                    <th>suppression</th>
+                    <th>Suppression</th>
+                    <th>Modification</th>
                     </tr>';
 
                     while ($row = $result->fetch_assoc()) {
@@ -99,7 +99,7 @@ require_once("roleadmin.php");
                         echo '<td>' . $row['categorie'] . '</td>';
                         echo '<td><a href="../projetweb/docpdf/' . $row['regle'] .'" download>Télécharger PDF</a></td>';
                         echo "<td><a href=' tt_delete_Jeu.php?id=" . $row['id'] . "'>Supprimer</a></td>";
-                        echo "<td><a href=' tt_mod_Jeu.php?id=" . $row['id'] . "'>Modifier</a></td>";        
+                        echo "<td><a href=' Mod_Jeu.php?id=" . $row['id'] . "'>Modifier</a></td>";        
                         echo '</tr>';
                     }
 
