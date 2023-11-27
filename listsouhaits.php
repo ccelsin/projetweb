@@ -1,10 +1,10 @@
 <?php
-    $titre = "Liste des jeux";
+    $titre = "Liste des souhaits";
     include("header.inc.php");
 ?>
 
 <div class="container">
-<h1>Liste des jeux</h1>
+<h1>Liste des souhaits</h1>
 
 
 
@@ -14,9 +14,7 @@
     <th scope="col">Images</th>
       <th scope="col">Nom</th>
       <th scope="col">Categorie</th>
-      <th scope="col">Regles</th>
-      <th scope="col">Souhaits</th>
-      
+      <th scope="col">Regles</th>      
     <tr>
       
   </thead>
@@ -26,7 +24,7 @@
 
 // Connexion :
 require_once("datacon.php");
-$req="SELECT * FROM jeu";
+$req="SELECT * FROM souhaits";
 $ps=$pdo->prepare($req);
 $ps->execute();
 
@@ -41,7 +39,6 @@ $ps->execute();
     echo'<td>'.$row['nom'].'</td>';
     echo'<td>'.$row['categorie'].'</td>';
     echo'<td><a href="'.$row['regle'].'">uno.pdf</a></td>';
-   echo "<td><a href=' tt_souhaits.php?id=" . $row['id'] . "'>Choisir</a></td>";
     echo '</tr>';
 }
 
