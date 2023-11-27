@@ -47,8 +47,14 @@ require_once("roleadmin.php");
         <a class="navbar-brand" href="notifications.php">Notifications</a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
+      </ul>
+      <ul class="navbar-nav me auto mb-lg-0">
+      <a class="navbar-brand" href="index.php">Se déconnecter</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
     </button>
-
+        </ul>
+    </nav>
 
 
     
