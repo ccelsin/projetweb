@@ -14,12 +14,11 @@ $con = new mysqli($host, $login, $passwd, $dbname);
 if ($con->connect_error) {
     die('Erreur de connexion (' . $con->connect_errno . ') ' . $con->connect_error);
 } else {
-    // Supprimer le jeu de la base de données
+    // 
     if (isset($_GET['id'])) {
         $id = $_GET['id'];
-        echo'rr';
 
-        $sql = "INSERT INTO souhaits (images,nom,categorie,regle) SELECT images, nom,categorie,regle FROM jeu WHERE id='$id'";
+        $sql = "INSERT INTO creneaux.jeu SELECT id FROM jeu WHERE id='$id'";
 
          
 
@@ -38,7 +37,7 @@ if ($con->connect_error) {
           <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
         </div>
         <div class="toast-body">
-          Génial!! Le Jeu a été choisi avec succès!
+          Génial!! Le créneau a été choisi avec succès!
         </div>
       </div>';
    
@@ -56,7 +55,7 @@ if ($con->connect_error) {
         }, 200);
      
         setTimeout(function () {
-            window.location.href = 'listsouhaits.php';
+            window.location.href = 'espace_perso.php';
           }, 4000);
       </script>";
         } else {
@@ -91,7 +90,7 @@ if ($con->connect_error) {
         }, 200);
      
         setTimeout(function () {
-            window.location.href = 'listsouhaits.php';
+            window.location.href = 'espace_perso.php';
           }, 4000);
       </script>";
         }

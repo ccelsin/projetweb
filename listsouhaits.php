@@ -14,7 +14,9 @@
     <th scope="col">Images</th>
       <th scope="col">Nom</th>
       <th scope="col">Categorie</th>
-      <th scope="col">Regles</th>      
+      <th scope="col">Regles</th>
+      <th scope="col">Creneau de jeu</th>
+
     <tr>
       
   </thead>
@@ -35,10 +37,10 @@ $ps->execute();
   {     
     echo '<tr>'; 
     echo '<td><img src="'.$row['images'].'" style="width:100px; height:100px;"></td>';
-    //$game_id=$row['id'];
     echo'<td>'.$row['nom'].'</td>';
     echo'<td>'.$row['categorie'].'</td>';
-    echo'<td><a href="'.$row['regle'].'">uno.pdf</a></td>';
+    echo'<td><a href="'.$row['regle'].'">'.$row['regle'].'</a></td>';
+    echo "<td><a href=' listcreneaux.php?id=" . $row['id'] . "'>Choisir</a></td>";
     echo '</tr>';
 }
 
