@@ -39,16 +39,22 @@
 
             <div class="container-fluid">
           <div class="row">
-            <div class="col">
-              <img src="logo.png" alt="logo">
+            <div class="col-3">
+              <div style="height:10vh;"></div>
             </div>
           </div>
          <div  class="row" id="block1">
             <div class="col-lg-8" id="block1-1">
-            <p class="fw-bold" style="margin-left:2.5vw; font-size:3.1rem;">Bienvenue à la <span class="text-primary"> Family League Arena! </span>  </p>
-              <p style="margin-left:12vw; font-size:2.3rem;"><span class="text-primary">Rejoignez</span> la plus grande table de jeux</p>
-              <p class="text-primary" style="margin-left:25vw; font-size:2.3rem;">au monde</p>
-              <p class="text-primary" style="margin-left:28vw; font-size:2.3rem; margin-top:5vh;">Qu'attendez vous!!</p>
+              <p class="fw-bold" style="margin-left:10vw; font-size:3.1rem;">Bienvenue à la <span class="text-primary "> Family <span style="margin-left:7vw;">League Arena! </span></span> </p>
+              <p style="margin-left:7vw; font-size:2.3rem;"><span class="text-primary">Rejoignez</span> la plus grande table de jeux</p>
+              <p class="text-primary" style="margin-left:23vw; font-size:2.3rem;">au monde</p>
+              <p class="text-primary" style="margin-left:17vw; font-size:2.3rem; margin-top:5vh;">Qu'attendez vous!!</p>
+            </div>
+            <div class="col-lg-4 d-flex align-items-center">
+              <div>
+              <div style="width:100%" class="rounded-circle col-sm-8"><div class="rounded-circle col-sm-8" style="height:0;padding-bottom:56.25%;position:relative;width:100%"><iframe allowfullscreen="" frameBorder="0" height="100%" src="https://giphy.com/embed/P6trDNTPCVBuH9clMl/video" style="left:0;position:absolute;top:0" width="100%"></iframe></div></div>
+                <video class="rounded-circle col-sm-8" autoplay loop muted src="https://giphy.com/embed/P6trDNTPCVBuH9clMl/video" ></video>
+              </div>
             </div>
           </div>
       </div>
@@ -64,38 +70,16 @@
           </div>
         </div>
               <div class="container">
-                  <div class="row>
-                    <div class="col-4"></div>
-                    <div class="col-5"></div>
+                  <div class="row">
+                    
                       <div class="col">
                         <form action="inscription.php" method="POST" >
-                          <input type="submit" value="Commencez à jouer maintenant !" ><br>
+                          <button type="submit" class="btn btn-primary col-sm-7" style="margin-left:15vw;">Commencez à jouer maintenant !</button>
                         </form>
                       </div>
                 </div>
             </div>
             
-
-            <div class="row">
-              <p>
-               
-              </p>
-            </div>
-            <div class="row ">
-              <div class="col-lg-4">
-              <img src="images/ordi.png" class="rounded float-start img-fluid " id="monitor">
-              </div>
-              <div class="col-lg-3">
-              <p>
-                <br><br><br><br><br>
-              </p>
-              <img src="images/tablette.png" class=" img-fluid " id="monitor">
-              </div>
-
-              <div class="col-lg-1">
-              
-              <img src="images/ecran.png" class=" img-fluid " id="monitor">
-              </div>
 
   </body>
 
