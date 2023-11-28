@@ -1,6 +1,7 @@
 <?php
     $titre = "Liste des souhaits";
     include("header.inc.php");
+    require_once("role_membre.php");
 ?>
 
 <div class="container">

@@ -4,6 +4,7 @@
     session_start();
 require_once("roleadmin.php");
 ?>
+
 <nav class="navbar navbar-expand-md bg-dark border-bottom border-body" data-bs-theme="dark">
   <div class="container-fluid">
   <ul class="nav nav-pills">
@@ -12,7 +13,7 @@ require_once("roleadmin.php");
       <ul class="dropdown-menu">
         <li><a class="dropdown-item" href="Add_Admin.php" style="font-color:white">Ajouter Admin</a></li>
         <li><a class="dropdown-item" href="Add_Jeu.php">Ajouter Jeu</a></li>
-        <li><a class="dropdown-item" href="Créneau.php">Ajouter creneau</a></li>
+        <li><a class="dropdown-item" href="creneau.php">Ajouter Créneau</a></li>
       </ul>
     </li>
     </ul> 
@@ -35,7 +36,10 @@ require_once("roleadmin.php");
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
-      
+    <a class="navbar-brand" href="Liste_creneaux.php">Liste créneaux</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
     <a class="navbar-brand" href="PlanningAdmin.php">Planning</a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
@@ -46,11 +50,15 @@ require_once("roleadmin.php");
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
-    </ul>
-      <ul class="navbar-nav me auto mb-lg-0">
+
       <a class="navbar-brand" href="index.php">Se déconnecter</a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
         </ul>
-    </nav>
+
+      </ul>
+    </div>
+  </div>
+</nav>
+

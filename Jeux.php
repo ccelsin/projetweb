@@ -6,6 +6,7 @@ include'header.inc.php';
 require_once("roleadmin.php");
 ?>
 
+
 <nav class="navbar navbar-expand-md bg-dark border-bottom border-body" data-bs-theme="dark">
   <div class="container-fluid">
   <ul class="nav nav-pills">
@@ -37,7 +38,10 @@ require_once("roleadmin.php");
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
-      
+    <a class="navbar-brand" href="Liste_creneaux.php">Liste créneaux</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
     <a class="navbar-brand" href="PlanningAdmin.php">Planning</a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
@@ -47,14 +51,20 @@ require_once("roleadmin.php");
         <a class="navbar-brand" href="notifications.php">Notifications</a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
-      </ul>
-      <ul class="navbar-nav me auto mb-lg-0">
+    </button>
+
       <a class="navbar-brand" href="index.php">Se déconnecter</a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
         </ul>
-    </nav>
+
+      </ul>
+    </div>
+  </div>
+</nav>
+
+
 
 
     
