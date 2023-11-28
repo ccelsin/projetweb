@@ -1,9 +1,16 @@
+
+
 <?php
 session_start();
+
+require_once("roleAdmin.php");
+?>
+<?php
+
 $title_page = " Liste des Créneaux";
 include 'database1.php';
 include'header.inc.php';
-require_once("roleAdmin.php");
+
 ?>
 
 

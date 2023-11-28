@@ -1,6 +1,9 @@
 <?php
-session_start(); // Pour les messages
+session_start();
+
 require_once("roleAdmin.php");
+?>
+<?php
 
 // Connexion à la base de données
 require_once("database1.php");

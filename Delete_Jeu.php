@@ -1,6 +1,9 @@
 <?php
 session_start();
+
 require_once("roleAdmin.php");
+?>
+<?php
 $titre = "Supprimer un jeu";
 include 'header.inc.php';
 include 'menuadmin.php';

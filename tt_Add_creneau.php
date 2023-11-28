@@ -1,6 +1,10 @@
 <?php
-session_start(); // Pour les messages
+session_start();
+
 require_once("roleAdmin.php");
+?>
+<?php
+
 // Contenu du formulaire
 $jeu = $_SESSION['id'];
 $gameDate = htmlentities($_POST['game_date']);

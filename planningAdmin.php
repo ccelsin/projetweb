@@ -1,9 +1,12 @@
+<?php
+session_start();
 
+require_once("roleAdmin.php");
+?>
 <?php
     $title_page = " Espace Administrateur";
     include("header.inc.php");
-    session_start();
-    require_once("roleAdmin.php");
+   
 ?>
 
 <nav class="navbar navbar-expand-md bg-dark border-bottom border-body" data-bs-theme="dark">

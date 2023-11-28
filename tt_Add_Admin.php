@@ -1,7 +1,10 @@
-
 <?php
-session_start(); // Pour les messages
+session_start();
+
 require_once("roleAdmin.php");
+?>
+<?php
+
 // Contenu du formulaire :
 $nom = htmlentities($_POST['nom']);
 $prenom = htmlentities($_POST['prenom']);

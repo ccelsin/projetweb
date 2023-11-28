@@ -1,6 +1,10 @@
 <?php
 session_start();
+
 require_once("roleAdmin.php");
+?>
+<?php
+
 $id = $_SESSION['id'];
 $nouvelledate = $_POST['date'];
 $debut = $_POST['debut'];

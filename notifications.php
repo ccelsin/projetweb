@@ -1,7 +1,13 @@
+
+<?php
+session_start();
+
+require_once("roleAdmin.php");
+?>
 <?php
     $title_page = " Espace Personnel";
     include("header.inc.php");
-    require_once("roleAdmin.php");
+    
 ?>
 
 <nav class="navbar navbar-expand-md bg-dark border-bottom border-body" data-bs-theme="dark">
