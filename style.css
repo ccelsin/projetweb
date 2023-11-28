@@ -6,4 +6,9 @@ body{
     background-size: cover;
 }
 
+html,body{
+    max-width: 100%;
+    overflow-x: hidden;
+}
+
 
