@@ -13,7 +13,7 @@ require_once("roleadmin.php");
       <ul class="dropdown-menu">
         <li><a class="dropdown-item" href="Add_Admin.php" style="font-color:white">Ajouter Admin</a></li>
         <li><a class="dropdown-item" href="Add_Jeu.php">Ajouter Jeu</a></li>
-        <li><a class="dropdown-item" href="Add_Créneau.php">Ajouter Créneau</a></li>
+        <li><a class="dropdown-item" href="Créneau.php">Ajouter creneau</a></li>
       </ul>
     </li>
     </ul> 
