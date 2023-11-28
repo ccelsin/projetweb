@@ -52,8 +52,8 @@
             </div>
             <div class="col-lg-4 d-flex align-items-center">
               <div>
-              <div style="width:100%"><div class="rounded-circle" style="height:0;padding-bottom:56.25%;position:relative;width:100%"><iframe allowfullscreen="" frameBorder="0" height="100%" src="https://giphy.com/embed/P6trDNTPCVBuH9clMl/video" style="left:0;position:absolute;top:0" width="100%"></iframe></div></div>
-                <video class="rounded-circle" autoplay loop muted src="https://giphy.com/embed/P6trDNTPCVBuH9clMl/video" style="width:25vw;height:25vh;"></video>
+              <div style="width:100%" class="rounded-circle col-sm-8"><div class="rounded-circle col-sm-8" style="height:0;padding-bottom:56.25%;position:relative;width:100%"><iframe allowfullscreen="" frameBorder="0" height="100%" src="https://giphy.com/embed/P6trDNTPCVBuH9clMl/video" style="left:0;position:absolute;top:0" width="100%"></iframe></div></div>
+                <video class="rounded-circle col-sm-8" autoplay loop muted src="https://giphy.com/embed/P6trDNTPCVBuH9clMl/video" ></video>
               </div>
             </div>
           </div>
@@ -71,11 +71,10 @@
         </div>
               <div class="container">
                   <div class="row">
-                    <div class="col-4"></div>
                     
                       <div class="col">
                         <form action="inscription.php" method="POST" >
-                          <button type="submit" class="btn btn-primary" >Commencez à jouer maintenant !</button>
+                          <button type="submit" class="btn btn-primary col-sm-7" style="margin-left:15vw;">Commencez à jouer maintenant !</button>
                         </form>
                       </div>
                 </div>
