@@ -25,7 +25,7 @@ session_start();
         </div>
         <div class="d-grid gap-2 col-4 mx-auto">
         </div>
-        <button type="submit" class="btn btn-outline-primary btn-lg">Confirmer</button>
+        <button type="submit" class="btn btn-outline-primary btn-lg" style="margin-top:5vh">Confirmer</button>
     </form>
 </div>
 
