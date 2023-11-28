@@ -5,7 +5,7 @@
 <?php
 session_start(); // Pour les messages
 require_once("role_membre.php");
-
+$idjeu = $_GET['id'];
 // Connexion à la base de données
 require_once("database1.php");
 $con = new mysqli($host, $login, $passwd, $dbname);
@@ -18,8 +18,8 @@ if ($con->connect_error) {
     if (isset($_GET['id'])) {
         $id = $_GET['id'];
 
-        $sql = "INSERT INTO choix () SELECT id FROM jeu WHERE id='$id'";
-
+        $sql = "INSERT INTO souhaits VALUES (?,?,?,?,?,?,?,?,?) ;
+$stmt->bind_param("isssissss", $idjeu,$jeu_photos, $nom, $categorie,$idjeu, );
          
 
         // Exécute la suppression

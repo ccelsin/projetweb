@@ -25,9 +25,8 @@ if ($con->connect_error) {
 
         // Exécute la suppression
         if ($con->query($sql)) {
-          $sql2= "INSERT INTO choix (creneau, souhait) SELECT creneaux.jeu, souhaits.nom  FROM creneaux, souhaits WHERE souhaits.jeu='$id'";
+          
          
-        $con->query($sql2);
             // Affiche un message de succès
             echo ' <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
