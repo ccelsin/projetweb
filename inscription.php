@@ -4,7 +4,7 @@ session_start();
     include("header.inc.php");
 ?>
 
-<div class="d-grid d-flex justify-content-center align-items-center gap-3 col-8 mx-auto">
+<div class="d-grid d-flex justify-content-center align-items-center gap-3 col-8 mx-auto" style="margin-top:18vh">
     <form action="tt_inscription.php" method="POST" >
         <div class="form-group">
             <label for="nom" class="col-sm-2 col-form-label">Nom</label>
