@@ -1,5 +1,6 @@
 <?php
 session_start();
+require_once("roleAdmin.php");
 $id = $_SESSION['id'];
 $nouveauNom = $_POST['name'];
 $nouvelleCategorie = $_POST['nouvelleCategorie'];

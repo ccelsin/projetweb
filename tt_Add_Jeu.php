@@ -6,7 +6,7 @@ $jeu_photos = $_FILES['imageJeu']['name'];
 $nom = htmlentities($_POST['nom']);
 $categorie = htmlentities($_POST['categorie']);
 $regle = $_FILES['pdfDocument']['name'];
-
+require_once("roleAdmin.php");
 // Assure-toi que les types de données dans la base de données correspondent
 // Modifie les types de bind_param en conséquence
 $uploadImage = "../projetweb/images/" . $jeu_photos;

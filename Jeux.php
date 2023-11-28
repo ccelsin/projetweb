@@ -3,7 +3,7 @@ session_start();
 $title_page = " Liste des Jeux";
 include 'database1.php';
 include'header.inc.php';
-require_once("roleadmin.php");
+require_once("roleAdmin.php");
 ?>
 
 

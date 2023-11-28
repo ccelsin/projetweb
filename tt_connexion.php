@@ -80,7 +80,7 @@ if ($stmt = $con->prepare("SELECT * FROM utilisateurs WHERE email=? LIMIT 1"))
             window.location.href = 'espace_Admin.php';
           }, 4000);
       </script>";
-            } elseif ($row["statut"] == 0)
+            } else if ($row["statut"] == 0)
                {
                 echo ' <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet"
                 integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">

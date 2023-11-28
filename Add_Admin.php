@@ -1,6 +1,7 @@
 <?php
     $title_page = " page d'ajout de d'admin'";
     include("header.inc.php");
+    require_once("roleAdmin.php");
 ?>
 <main>
  

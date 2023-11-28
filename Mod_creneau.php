@@ -3,7 +3,7 @@ session_start();
 $titre = "Modifier un jeu";
 include 'header.inc.php';
 
-require_once("roleadmin.php");
+require_once("roleAdmin.php");
 require_once("database1.php");
 
 $con = new mysqli($host, $login, $passwd, $dbname);

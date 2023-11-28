@@ -1,9 +1,10 @@
 <?php
 session_start();
+require_once("roleAdmin.php");
 $title_page = " Ajouter créneau";
 include 'database1.php';
 include'header.inc.php';
-require_once("roleadmin.php");
+
 ?>
 
 <nav class="navbar navbar-expand-md bg-dark border-bottom border-body" data-bs-theme="dark">
