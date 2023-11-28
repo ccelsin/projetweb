@@ -17,19 +17,21 @@ if ($con->connect_error) {
     // Supprimer le jeu de la base de données
     if (isset($_GET['id'])) {
         $id = $_GET['id'];
-        echo'rr';
+        
 
-        $sql = "INSERT INTO souhaits (images,nom,categorie,regle) SELECT images, nom,categorie,regle FROM jeu WHERE id='$id'";
+        $sql = "INSERT INTO souhaits (images,nom,categorie) SELECT images, nom,categorie FROM jeu WHERE id='$id'";
 
          
 
         // Exécute la suppression
         if ($con->query($sql)) {
+          $sql2= "INSERT INTO choix (creneau, souhait) SELECT creneaux.jeu, souhaits.nom  FROM creneaux, souhaits WHERE souhaits.jeu='$id'";
+         
+        $con->query($sql2);
             // Affiche un message de succès
             echo ' <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
-   
-   
+          
       <script src="../js/bootstrap.min.js"></script>';
    
         echo '<div id="bienvenue-toast" class="toast position-fixed top-50 start-50 translate-middle" role="alert" aria-live="assertive" aria-atomic="true">

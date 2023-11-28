@@ -18,7 +18,7 @@ if ($con->connect_error) {
     if (isset($_GET['id'])) {
         $id = $_GET['id'];
 
-        $sql = "INSERT INTO creneaux.jeu SELECT id FROM jeu WHERE id='$id'";
+        $sql = "INSERT INTO choix () SELECT id FROM jeu WHERE id='$id'";
 
          
 
