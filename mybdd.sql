@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Client :  localhost
--- Généré le :  Mer 29 Novembre 2023 à 18:31
+-- Généré le :  Mer 29 Novembre 2023 à 20:57
 -- Version du serveur :  5.7.11
 -- Version de PHP :  5.6.18
 
@@ -52,10 +52,8 @@ INSERT INTO `creneaux` (`id`, `jeu`, `game_date`, `game_start`, `game_end`) VALU
 
 CREATE TABLE `favoris` (
   `id` int(200) NOT NULL,
-  `images` varchar(250) NOT NULL,
-  `nom` varchar(250) NOT NULL,
-  `categorie` varchar(250) NOT NULL,
-  `membre` int(100) NOT NULL
+  `membre` int(100) NOT NULL,
+  `id_jeu` int(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
@@ -168,7 +166,8 @@ ALTER TABLE `creneaux`
 --
 ALTER TABLE `favoris`
   ADD PRIMARY KEY (`id`),
-  ADD KEY `membre` (`membre`);
+  ADD KEY `membre` (`membre`),
+  ADD KEY `id_jeu` (`id_jeu`);
 
 --
 -- Index pour la table `historiques`
@@ -256,7 +255,8 @@ ALTER TABLE `creneaux`
 -- Contraintes pour la table `favoris`
 --
 ALTER TABLE `favoris`
-  ADD CONSTRAINT `favoris_ibfk_1` FOREIGN KEY (`membre`) REFERENCES `utilisateurs` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
+  ADD CONSTRAINT `favoris_ibfk_1` FOREIGN KEY (`membre`) REFERENCES `utilisateurs` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `favoris_ibfk_2` FOREIGN KEY (`id_jeu`) REFERENCES `jeu` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Contraintes pour la table `historiques`
