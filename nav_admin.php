@@ -23,7 +23,7 @@ echo'<nav class="navbar navbar-expand-md bg-dark border-bottom border-body" data
    
         </ul>
         <ul class="navbar-nav me-auto mb-lg-0">
-        <a class="navbar-brand" href="List_souhaits.php">Liste souhaits</a>
+        <a class="navbar-brand" href="ListE_souhaits.php">Liste souhaits</a>
     
     <a class="navbar-brand" href="Liste_creneaux.php">Liste créneaux</a>
     
