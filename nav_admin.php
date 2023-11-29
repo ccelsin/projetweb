@@ -27,7 +27,7 @@ echo'<nav class="navbar navbar-expand-md bg-dark border-bottom border-body" data
     
     <a class="navbar-brand" href="Liste_creneaux.php">Liste créneaux</a>
     
-    <a class="navbar-brand" href="PlanningAdmin.php">Planning</a>
+    
     
         </ul>
         <ul class="navbar-nav mb-lg-0">

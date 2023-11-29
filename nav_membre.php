@@ -11,7 +11,7 @@ echo'
     </button>
     <div class="collapse navbar-collapse" id="navbarText">
       <ul class="navbar-nav me auto mb-lg-0">
-      <a class="navbar-brand" href="historique.php">Historique des Jeux</a>
+      
         </ul>
         <ul class="navbar-nav me-auto mb-lg-0">
         <a class="navbar-brand" href="Favoris.php">Favoris</a>

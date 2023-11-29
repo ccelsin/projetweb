@@ -66,16 +66,17 @@
     <span class="visually-hidden">Next</span>
   </button>
 </div>
-    <p>🎉 Prêt à relever le défi de l'amusement ? 🎉</p>
+    
+  
+  
+  
+  
+      <div style="font-size:2rem;">
+      <p >🎉 Prêt à relever le défi de l'amusement ? 🎉</p>
    
-    <p>🎮 Entrez dans le monde captivant des jeux et de l'excitation ! Chez nous, le plaisir est une priorité, et vous êtes l'invité d'honneur.</p> Découvrez une myriade de jeux palpitants qui vous feront vibrer, rire et vous surpasser. Des défis intellectuels aux aventures épiques, il y en a pour tous les goûts et tous les niveaux.</p>
-    </p>
-  </div>
-  
-  
-  
-  
-      <div>
+   <p >🎮 Entrez dans le monde captivant des jeux et de l'excitation ! Chez nous, le plaisir est une priorité, et vous êtes l'invité d'honneur.</p> Découvrez une myriade de jeux palpitants qui vous feront vibrer, rire et vous surpasser. Des défis intellectuels aux aventures épiques, il y en a pour tous les goûts et tous les niveaux.</p>
+   
+ 
   🏆 Êtes-vous prêt à tester vos compétences et à remporter des prix fabuleux ? Mettez-vous au défi, mesurez-vous à d'autres joueurs et prouvez que vous avez ce qu'il faut pour être le champion ultime !
   
   🤩 Vous cherchez des sensations fortes ? Relevez des missions, accomplissez des quêtes et devenez un héros du jeu. Les récompenses sont à la hauteur du défi. Êtes-vous prêt à tout risquer pour décrocher la gloire ?
@@ -87,4 +88,5 @@
   Rejoignez-nous dès maintenant et laissez l'amusement commencer !
   
   🎉 Jouons ensemble ! 🎉
+  </p>
 </div>
