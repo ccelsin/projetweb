@@ -7,6 +7,7 @@ include("header.inc.php");
 
 require_once("database1.php");
 require_once("role_membre.php");
+include'nav_membre.php';
 ?>
 
 <div class="container text-center">
@@ -27,7 +28,7 @@ require_once("role_membre.php");
             if ($result) {
                 // Afficher les jeux s'il y en a
                 if ($result->num_rows > 0) {
-                    echo '<h2>Liste des Jeux</h2>';
+                    echo '<h2>Liste des créneaux</h2>';
                     echo '<table class="table mx-auto" style="color: black;">';
                     echo '<tr>
                             <th>Date</th>
