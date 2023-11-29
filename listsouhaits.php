@@ -1,7 +1,9 @@
 <?php
-    $titre = "Liste des souhaits";
+     session_start();
+   $titre = "Liste des souhaits";
     include("header.inc.php");
     require_once("role_membre.php");
+  
 ?>
 
 <div class="container">
@@ -14,9 +16,11 @@
     <tr>
     <th scope="col">Images</th>
       <th scope="col">Nom</th>
-      <th scope="col">Categorie</th>
-      <th scope="col">Creneau de jeu</th>
-
+      <th scope="col">Catégorie</th>
+      <th scope="col">Date</th>
+      <th scope="col">Début</th>
+      <th scope="col">Fin</th>
+      <th scope="col">Statut</th>
     <tr>
       
   </thead>
@@ -26,7 +30,13 @@
 
 // Connexion :
 require_once("datacon.php");
-$req="SELECT * FROM souhaits";
+$membre= $_SESSION['PROFILE']['id'];
+
+
+// Exécuter la requête SQL pour récupérer les données
+$req= "SELECT * FROM souhaits JOIN creneaux ON (id_creneaux = id) JOIN 
+jeu ON  ON (jeu=id) WHERE id = '$membre';";
+$resultat = mysqli_query($conn, $sql);
 $ps=$pdo->prepare($req);
 $ps->execute();
 
@@ -39,8 +49,7 @@ $ps->execute();
     echo '<td><img src="'.$row['images'].'" style="width:100px; height:100px;"></td>';
     echo'<td>'.$row['nom'].'</td>';
     echo'<td>'.$row['categorie'].'</td>';
-    echo "<td><a href=' listcreneaux.php?id=" . $row['id'] . "'>Choisir</a></td>";
-    echo '</tr>';
+  
 }
 
 ?>
