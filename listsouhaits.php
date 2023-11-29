@@ -29,13 +29,20 @@
   <?php
 
 // Connexion :
-require_once("datacon.php");
+require_once("database1.php");
 $membre= $_SESSION['PROFILE']['id'];
 
-
+require_once("database1.php");
+//créer la connexion
+$con = new mysqli($host, $login, $passwd, $dbname);
+//vérifier la connexion
+if ($con->connect_error) {
+  die("La connexion à la base de données a échoué : " . $con->connect_error);
+}else{
+  $result = $con->query("SELECT * FROM souhaits JOIN creneaux ON (id_creneaux = id) JOIN 
+  jeu ON  (jeu=id) WHERE id = '$membre';");
 // Exécuter la requête SQL pour récupérer les données
-$req= "SELECT * FROM souhaits JOIN creneaux ON (id_creneaux = id) JOIN 
-jeu ON  ON (jeu=id) WHERE id = '$membre';";
+$req= 
 $resultat = mysqli_query($conn, $sql);
 $ps=$pdo->prepare($req);
 $ps->execute();
@@ -49,7 +56,11 @@ $ps->execute();
     echo '<td><img src="'.$row['images'].'" style="width:100px; height:100px;"></td>';
     echo'<td>'.$row['nom'].'</td>';
     echo'<td>'.$row['categorie'].'</td>';
-  
+    echo'<td>'.$row['game_date'].'</td>';
+    echo'<td>'.$row['game_start'].'</td>';
+    echo'<td>'.$row['game_end'].'</td>';
+    echo'<td>'.$row['statut'].'</td>';
+    echo '</tr>';
 }
 
 ?>
