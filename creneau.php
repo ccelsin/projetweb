@@ -4,58 +4,11 @@ require_once("roleAdmin.php");
 $title_page = " Ajouter créneau";
 include 'database1.php';
 include'header.inc.php';
+require_once("nav_admin.php");
 
 ?>
 
-<nav class="navbar navbar-expand-md bg-dark border-bottom border-body" data-bs-theme="dark">
-  <div class="container-fluid">
-  <ul class="nav nav-pills">
-  <li class="nav-item dropdown">
-      <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown"  role="button" aria-expanded="false">Ajouter </a>
-      <ul class="dropdown-menu">
-        <li><a class="dropdown-item" href="Add_Admin.php" style="font-color:white">Ajouter Admin</a></li>
-        <li><a class="dropdown-item" href="Add_Jeu.php">Ajouter Jeu</a></li>
-        <li><a class="dropdown-item" href="creneau.php">Ajouter Créneau</a></li>
-      </ul>
-    </li>
-    </ul> 
-    <div class="collapse navbar-collapse" id="navbarText">
-      <ul class="navbar-nav me auto mb-lg-0">
-      <a class="navbar-brand fw-bold" href="Jeux.php">Liste Jeux</a>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-        </ul>
-    <div class="collapse navbar-collapse" id="navbarText">
-      <ul class="navbar-nav me auto mb-lg-0">
-      <a class="navbar-brand" href="Liste_membres.php">Liste Membres</a>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-        </ul>
-        <ul class="navbar-nav me-auto mb-lg-0">
-        <a class="navbar-brand" href="List_souhaits.php">Liste souhaits</a>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-      
-    <a class="navbar-brand" href="PlanningAdmin.php">Planning</a>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-        </ul>
-        <ul class="navbar-nav mb-lg-0">
-        <a class="navbar-brand" href="notifications.php">Notifications</a>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-      </ul>
-      <ul class="navbar-nav me auto mb-lg-0">
-      <a class="navbar-brand" href="index.php">Se déconnecter</a>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-        </ul>
-    </nav>
+
 
 
     
@@ -74,19 +27,18 @@ include'header.inc.php';
             if ($result) {
                 // Afficher les jeux s'il y en a
                 if ($result->num_rows > 0) {
-                    echo '<h2>Liste des Jeux</h2>';
+                    echo '<h2>Ajout de créneau</h2>';
                     echo '<table class="table mx-auto" style="color: black;">';
                     echo '<tr>
                     <th>Images</th>
                     <th>Nom</th>
-                    <th>Catégorie</th> <th>Règles</th>
-                    <th>Suppression</th>
-                    <th>Modification</th>
+                    <th>Catégorie</th> <th>Action</th>
+                    
                     </tr>';
 
                     while ($row = $result->fetch_assoc()) {
                       echo '<tr>';
-                        echo '<td><img src="../projetweb/images/' . $row['images'] . '" alt="Image du jeu"></td>';
+                        echo '<td><img src="../projetweb/images/' . $row['images'] . '" alt="Image du jeu" style="width:100px; height:100px;"></td>';
                         echo '<td>' . $row['nom'] . '</td>';
                         echo '<td>' . $row['categorie'] . '</td>';
                         echo "<td><a href=' Add_Creneau.php?id=" . $row['id'] . "'>Ajouter un créneau</a></td>";   

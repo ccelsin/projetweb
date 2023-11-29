@@ -2,16 +2,16 @@
 session_start();
 
 require_once("roleAdmin.php");
-?>
 
-<?php
     $title_page = " page d'ajout de d'admin'";
     include("header.inc.php");
+    require_once("nav_admin.php");
 ?>
 <main>
  
   
 <div class="d-grid gap-2 col-6 mx-auto">
+    <h1>Ajouter un administrateur</h1>
     <form action="tt_Add_Admin.php" method="POST" >
         <div class="form-group">
             <label for="nom" class="col-sm-2 col-form-label">Nom</label>

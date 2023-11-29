@@ -3,6 +3,8 @@
 session_start();
 
 require_once("roleAdmin.php");
+require_once("nav_admin.php");
+
 ?>
 
 <?php
@@ -46,7 +48,7 @@ include'header.inc.php';
 
                     while ($row = $result->fetch_assoc()) {
                       echo '<tr>';
-                        echo '<td><img src="../projetweb/images/' . $row['images'] . '" alt="Image du jeu"></td>';
+                        echo '<td><img src="../projetweb/images/' . $row['images'] . '" alt="Image du jeu" style="width:100px; height:100px;"></td>';
                         echo '<td>' . $row['nom'] . '</td>';
                         echo '<td>' . $row['categorie'] . '</td>';
                         echo '<td><a href="../projetweb/docpdf/' . $row['regle'] .'" download>Télécharger PDF</a></td>';
