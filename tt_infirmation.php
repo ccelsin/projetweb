@@ -32,16 +32,7 @@ if ($con->connect_error) {
 
     $stm1 = $con->query("DELETE FROM souhaits WHERE id_membre = '$uti' AND id_creneau = '$cren';");
 
-    if (mysqli_query($con, $sql)) {
-        $to = $emaill;
-        $subject = "Sujet du mail";
-        $message = "<html><body><h1>Titre</h1><p>Ceci est un message HTML.</p></body></html>";
-        $headers = "MIME-Version: 1.0" . "\r\n";
-        $headers .= "Content-type:text/html;charset=UTF-8" . "\r\n";
-        $headers .= "From: manuagbaholou@gmail.com" . "\r\n";
-
-        // Utilisation de la fonction mail pour envoyer le mail
-        mail($to, $subject, $message, $headers);
+    
         header("Location:liste_souhaits.php");
     } else {
         echo "Erreur lors de l'ajout de l'image : " . mysqli_error($con);

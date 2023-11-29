@@ -1,6 +1,6 @@
 <?php
 session_start();
-$titre = "Liste des souhaits";
+$titre_page = "Liste des souhaits";
 include("header.inc.php");
 require_once("role_membre.php");
 require_once("database1.php");
@@ -15,9 +15,10 @@ if ($con->connect_error) {
     die("La connexion à la base de données a échoué : " . $con->connect_error);
 } else {
     $result = $con->query("SELECT * FROM souhaits INNER JOIN creneaux ON (id_creneau = id);");
+    
 
     if ($result->num_rows > 0) {
-        echo '<h2>Liste des Jeux</h2>';
+        echo '<h2>Liste des Souhaits</h2>';
         echo '<table class="table mx-auto" style="color: black;">';
         echo '<tr>
                 <th>Images</th>
@@ -27,9 +28,11 @@ if ($con->connect_error) {
                 <th>Début</th>
                 <th>Fin</th>
                 <th>Statut</th>
+                
                 </tr>';
 
         while ($row = $result->fetch_assoc()) {
+
             $id_Jeu = $row['jeu'];
             $sql = "SELECT images, nom, categorie FROM jeu  WHERE id = ?;";
             $stmt = $con->prepare($sql);
@@ -45,6 +48,7 @@ if ($con->connect_error) {
             echo '<td>' . $row['game_start'] . '</td>';
             echo '<td>' . $row['game_end'] . '</td>';
             echo '<td>' . $row['statut'] . '</td>';
+
             echo '</tr>';
             }
             
