@@ -7,7 +7,9 @@ session_start(); // Démarrer la session pour les messages
  
 $email = htmlentities($_POST['email']);
 $password = htmlentities($_POST['password']);
- 
+
+  "INSERT INTO souhaits (nom_membre) VALUES ('$email')";
+
 // Connexion à la base de données
 require_once("database1.php");
 $con = new mysqli($host, $login, $passwd, $dbname);

@@ -2,6 +2,7 @@
 session_start();
     $title_page = " Espace Personnel";
     include("header.inc.php");
+    $name = $_SESSION['PROFILE']['nom'];
     require_once("role_membre.php");
 ?>
 <nav class="navbar navbar-expand-md bg-dark border-bottom border-body" data-bs-theme="dark">

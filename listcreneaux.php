@@ -21,22 +21,6 @@ require_once("role_membre.php");
         $idjeu = $_GET['id'];
     }
         
-                if ($stmt_check = $con->prepare("SELECT nom, categorie FROM jeu WHERE  id=  '$idjeu")) {
-                  $stmt_check->execute();
-                  $stmt_check->store_result();
-                  if ($stmt_check->num_rows > 0) {
-                     
-                      $stmt_insert = $con->prepare("INSERT INTO souhaits(id_Jeu, nom, categorie) VALUES ('" . $row['id'] . "', '" . $row['nom'] . "', '" . $row['categorie'] . "')")
-                         
-                      
-                  
-                  
-
-
-
-
-
-            
             //$result1 = $con->query("INSERT INTO souhaits (id_Jeu, nom, categories) VALUES ('$idjeu', '$name', '$idc')");
             // Requête SELECT pour récupérer les jeux
             $result = $con->query("SELECT id, game_date, game_start, game_end FROM creneaux WHERE jeu = '$idjeu'");
@@ -74,9 +58,9 @@ require_once("role_membre.php");
             }
 
         }
-       
+    
 
-    }
+    
     // Fermer la connexion à la base de données
     $con->close();
     ?>
