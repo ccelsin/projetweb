@@ -20,7 +20,7 @@ echo'
     
         </ul>
         <ul class="navbar-nav mb-lg-0">
-        <a class="navbar-brand" href="notifications.php">Notifications</a>
+        
     
         
     <a class="navbar-brand" href="deconnexion.php">Se déconnecter</a>

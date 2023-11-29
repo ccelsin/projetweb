@@ -14,12 +14,13 @@ $con = new mysqli($host, $login, $passwd, $dbname);
 if ($con->connect_error) {
     die('Erreur de connexion (' . $con->connect_errno . ') ' . $con->connect_error);
 } else {
-     echo'rrr';
+     
     // Supprimer le jeu de la base de données
     if (isset($_GET['id'])) {
         $id = $_GET['id'];
+        
     }
-    $id = $_GET['id'];
+    
     
         $sql = "INSERT INTO favoris (images,nom,categorie) SELECT images, nom,categorie FROM jeu WHERE id='$id'";
 
