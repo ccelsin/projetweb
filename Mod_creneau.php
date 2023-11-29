@@ -8,6 +8,8 @@ require_once("roleAdmin.php");
 
 $titre = "Modifier un jeu";
 include 'header.inc.php';
+include_once("roleAdmin.php");
+include_once("nav_admin.php");
 require_once("database1.php");
 
 $con = new mysqli($host, $login, $passwd, $dbname);

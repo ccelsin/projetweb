@@ -48,7 +48,7 @@ if ($con->connect_error) {
       }, 200);
    
       setTimeout(function () {
-          window.location.href = 'espace_Admin.php';
+          window.location.href = 'Jeux.php';
         }, 4000);
     </script>";
 } else {
@@ -82,7 +82,7 @@ if ($con->connect_error) {
       }, 200);
    
       setTimeout(function () {
-          window.location.href = 'espace_Admin.php';
+          window.location.href = 'Jeux.php';
         }, 4000);
     </script>";  mysqli_error($con);
 }

@@ -14,6 +14,7 @@ session_start();
       </svg> Jeux </h1>
     </div>
     <div class="container">
+      <div class="row d-flex space-around">
     <?php
     // Connexion à la base de données
     require_once("database1.php");
@@ -33,7 +34,7 @@ session_start();
         while ($row = $result->fetch_assoc()) {
           
 
-          echo'<div class="card" style="width: 18rem;">
+          echo'<div class="card" style="width: 18rem;margin-right:2vw;">
           <img class="rounded" src="../projetweb/images/' . $row['images'] . '" alt="Image du jeu">
   <div class="card-body">
     <h5 class="card-title" style="margin-left: 9vw;">' . $row['nom'] . '</h5>
@@ -62,6 +63,7 @@ echo 'Erreur lors de la récupération des jeux : ' . $con->error;
 // Fermer la connexion à la base de données
 $con->close();
 ?>
+</div>
 </div>
 
 
