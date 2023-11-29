@@ -1,11 +1,6 @@
-
-
-
-
 <?php
 session_start(); // Pour les messages
 require_once("role_membre.php");
-$nom = $_SESSION['PROFILE']['id'];
 // Connexion à la base de données
 require_once("database1.php");
 $con = new mysqli($host, $login, $passwd, $dbname);
@@ -17,89 +12,51 @@ if ($con->connect_error) {
     // 
     if (isset($_GET['id'])) {
         $id = $_GET['id'];
+        
+        $stmt_check = $con->prepare("SELECT * FROM creneaux WHERE id = ?");
+        $stmt_check->bind_param("i", $id);  // Lier le paramètre à la requête
+        $stmt_check->execute();
+        $stmt_check->store_result();
 
-        if ($stmt_check = $con->prepare("SELECT * FROM creneaux WHERE  id=  ?")) {
-          $stmt_check->bind_param("i" $id);
-          $stmt_check->execute();
-          $stmt_check->store_result();
-          if ($stmt_check->num_rows > 0) {
-              $_SESSION['message'] = "Vous avez déjà aimé ce jeu";
-          } else {
-              if ($stmt_insert = $mysqli->prepare("INSERT INTO souhaits(id_creneau, g_date, g_start, g_end, statut) VALUES ('" . $row['id'] . "', '" . $row['game_date'] . "', '" . $row['game_start'] . "','" . $row['game_end'] . "', 'en cours...')")) {
-                  if ($stmt_insert->execute()) {
-                    echo ' <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet"
-                    integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
-               
-               
-                  <script src="../js/bootstrap.min.js"></script>';
-               
-                    echo '<div id="bienvenue-toast" class="toast position-fixed top-50 start-50 translate-middle" role="alert" aria-live="assertive" aria-atomic="true">
-                    <div class="toast-header">
-                      <strong class="me-auto">Notification</strong>
-                      <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
-                    </div>
-                    <div class="toast-body">
-                      Génial!! Le créneau a été choisi avec succès!
-                    </div>
-                  </div>';
-               
-                    echo ' <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"></script>';
-               
-               
-                    echo "<script>
-                    // Affiche le toast de bienvenue après 1 seconde
-               
-                    setTimeout(function () {
-                      var bienvenueToast = new bootstrap.Toast(document.getElementById('bienvenue-toast'));
-                      bienvenueToast.show();
-                      toast.hide();
-               
-                    }, 200);
-                 
-                    setTimeout(function () {
-                        window.location.href = 'espace_perso.php';
-                      }, 4000);
-                  </script>";
+        // Utiliser bind_result pour récupérer les résultats
+        $stmt_check->bind_result($id, $jeu, $game_date, $game_start, $game_end);  // Assurez-vous de lister toutes les colonnes nécessaires
+
+        if ($stmt_check->num_rows > 0) {
+            // Continuez avec le reste de votre code ici
+            if ($stmt_check->num_rows > 0) {
+              // Continuez avec le reste de votre code ici
+              while ($stmt_check->fetch()) {
+                  // Préparez la requête d'insertion des souhaits
+                  $stmt_insert = $con->prepare("INSERT INTO souhaits(id_Jeu, id_creneau, g_date, g_start, g_end, statut) VALUES (?,?, ?, ?, ?, 'en cours...')");
+          
+                  // Vérifiez si la préparation de la requête a échoué
+                  if (!$stmt_insert) {
+                      echo 'Erreur de préparation de la requête d\'insertion : ' . $con->error;
                   } else {
-                    echo ' <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet"
-                    integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
-               
-               
-                  <script src="../js/bootstrap.min.js"></script>';
-               
-                    echo '<div id="bienvenue-toast" class="toast position-fixed top-50 start-50 translate-middle" role="alert" aria-live="assertive" aria-atomic="true">
-                    <div class="toast-header">
-                      <strong class="me-auto">Notification</strong>
-                      <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
-                    </div>
-                    <div class="toast-body">
-                      erreur lors de la suppression!
-                    </div>
-                  </div>';
-               
-                    echo ' <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"></script>';
-               
-               
-                    echo "<script>
-                    // Affiche le toast de bienvenue après 1 seconde
-               
-                    setTimeout(function () {
-                      var bienvenueToast = new bootstrap.Toast(document.getElementById('bienvenue-toast'));
-                      bienvenueToast.show();
-                      toast.hide();
-               
-                    }, 200);
-                 
-                    setTimeout(function () {
-                        window.location.href = 'espace_perso.php';
-                      }, 4000);
-                  </script>";
+                      // Lier les paramètres
+                      $stmt_insert->bind_param("iisss", $jeu, $id, $game_date, $game_start, $game_end);
+          
+                      // Exécuter la requête d'insertion
+                      if ($stmt_insert->execute()) {
+                          echo 'créneau choisi';
+                      } else {
+                          // Afficher les détails de l'erreur d'exécution
+                          echo 'Erreur lors de l\'exécution de la requête d\'insertion : ' . $stmt_insert->error;
+                      }
+          
+                      // Fermer la requête d'insertion
+                      $stmt_insert->close();
                   }
               }
+          } else {
+              echo 'erreur lors du choix';
           }
-          $stmt_check->close();
-      }
+          
+        } else {
+            echo 'erreur lors du choix';
+        }
 
+        $stmt_check->close();
     }
 
     // Fermer la connexion à la base de données
@@ -127,6 +84,3 @@ if ($con->connect_error) {
 </body>
 
 </html>
-
-
-
