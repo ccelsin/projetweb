@@ -5,6 +5,7 @@ echo'
   <div class="container-fluid">
   <a class="navbar-brand" href="espace_perso.php">Accueil</a>
     <a class="navbar-brand" href="listjeux.php">Liste des Jeux</a>
+    <a class="navbar-brand" href="listsouhaits.php">Liste des Souhaits</a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>

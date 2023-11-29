@@ -6,4 +6,4 @@
     require_once('role_membre.php');
 ?>
 
-<div>rrrrrrrrrr</div>
+<div></div>

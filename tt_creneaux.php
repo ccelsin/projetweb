@@ -12,52 +12,44 @@ if ($con->connect_error) {
     // 
     if (isset($_GET['id'])) {
         $id = $_GET['id'];
-        
-        $stmt_check = $con->prepare("SELECT * FROM creneaux WHERE id = ?");
-        $stmt_check->bind_param("i", $id);  // Lier le paramètre à la requête
-        $stmt_check->execute();
-        $stmt_check->store_result();
+        $membre= $_SESSION['PROFILE']['id'];
+       
 
-        // Utiliser bind_result pour récupérer les résultats
-        $stmt_check->bind_result($id, $jeu, $game_date, $game_start, $game_end);  // Assurez-vous de lister toutes les colonnes nécessaires
+       
 
-        if ($stmt_check->num_rows > 0) {
-            // Continuez avec le reste de votre code ici
-            if ($stmt_check->num_rows > 0) {
+      
               // Continuez avec le reste de votre code ici
-              while ($stmt_check->fetch()) {
+              
+               
+   
+                
                   // Préparez la requête d'insertion des souhaits
-                  $stmt_insert = $con->prepare("INSERT INTO souhaits(id_Jeu, id_creneau, g_date, g_start, g_end, statut) VALUES (?,?, ?, ?, ?, 'en cours...')");
+                  $stmt_insert = $con->prepare("INSERT INTO souhaits (id_membre, id_creneau, statut) VALUES (?,?,'en cours...')");
           
-                  // Vérifiez si la préparation de la requête a échoué
-                  if (!$stmt_insert) {
-                      echo 'Erreur de préparation de la requête d\'insertion : ' . $con->error;
-                  } else {
+                
                       // Lier les paramètres
-                      $stmt_insert->bind_param("iisss", $jeu, $id, $game_date, $game_start, $game_end);
+                      $stmt_insert->bind_param("ii",  $membre,$id);
           
                       // Exécuter la requête d'insertion
                       if ($stmt_insert->execute()) {
                           echo 'créneau choisi';
                       } else {
                           // Afficher les détails de l'erreur d'exécution
-                          echo 'Erreur lors de l\'exécution de la requête d\'insertion : ' . $stmt_insert->error;
+                          echo 'Vous avez déja choisi ce créneau' ;
                       }
           
                       // Fermer la requête d'insertion
                       $stmt_insert->close();
-                  }
-              }
-          } else {
-              echo 'erreur lors du choix';
-          }
+                  
+              
+         
           
         } else {
             echo 'erreur lors du choix';
         }
 
-        $stmt_check->close();
-    }
+       
+    
 
     // Fermer la connexion à la base de données
     $con->close();
