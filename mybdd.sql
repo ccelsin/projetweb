@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Client :  localhost
--- Généré le :  Mar 28 Novembre 2023 à 10:10
+-- Généré le :  Mer 29 Novembre 2023 à 18:31
 -- Version du serveur :  5.7.11
 -- Version de PHP :  5.6.18
 
@@ -39,9 +39,10 @@ CREATE TABLE `creneaux` (
 --
 
 INSERT INTO `creneaux` (`id`, `jeu`, `game_date`, `game_start`, `game_end`) VALUES
-(1, 4, '2023-11-29', '14:00:00', '15:00:00'),
-(2, 4, '2023-11-30', '08:27:00', '09:27:00'),
-(3, 4, '2023-11-30', '15:05:00', '16:08:00');
+(15, 5, '2023-11-30', '06:00:00', '06:14:00'),
+(16, 5, '2023-11-30', '13:39:00', '19:39:00'),
+(17, 4, '2023-12-02', '09:40:00', '10:40:00'),
+(18, 5, '2023-12-01', '08:00:00', '09:00:00');
 
 -- --------------------------------------------------------
 
@@ -53,7 +54,8 @@ CREATE TABLE `favoris` (
   `id` int(200) NOT NULL,
   `images` varchar(250) NOT NULL,
   `nom` varchar(250) NOT NULL,
-  `categorie` varchar(250) NOT NULL
+  `categorie` varchar(250) NOT NULL,
+  `membre` int(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
@@ -68,6 +70,18 @@ CREATE TABLE `historiques` (
   `jeu` int(100) NOT NULL,
   `membre` int(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `intermédiare`
+--
+
+CREATE TABLE `intermédiare` (
+  `id` int(11) NOT NULL,
+  `idm` varchar(200) NOT NULL,
+  `id_souhaits` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
@@ -88,7 +102,8 @@ CREATE TABLE `jeu` (
 --
 
 INSERT INTO `jeu` (`id`, `images`, `nom`, `categorie`, `regle`) VALUES
-(4, 'MicrosoftTeams-image (4).png', 'Scrabble', 'SociÃ©tÃ©', 'volvo.pdf');
+(4, 'MicrosoftTeams-image (4).png', 'Scrabble', 'SociÃ©tÃ©', 'volvo.pdf'),
+(5, 'jeux 2.jpg', 'Monopoly', 'Soci&eacute;t&eacute;', 'volvo.pdf');
 
 -- --------------------------------------------------------
 
@@ -97,12 +112,19 @@ INSERT INTO `jeu` (`id`, `images`, `nom`, `categorie`, `regle`) VALUES
 --
 
 CREATE TABLE `souhaits` (
-  `id` int(11) NOT NULL,
-  `images` varchar(250) NOT NULL,
-  `nom` varchar(250) NOT NULL,
-  `catégorie` varchar(250) NOT NULL,
-  `id_creneau` int(11) NOT NULL
+  `id_membre` int(55) NOT NULL,
+  `id_creneau` int(11) NOT NULL,
+  `statut` varchar(200) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Contenu de la table `souhaits`
+--
+
+INSERT INTO `souhaits` (`id_membre`, `id_creneau`, `statut`) VALUES
+(5, 15, ''),
+(5, 16, ''),
+(5, 18, 'en cours...');
 
 -- --------------------------------------------------------
 
@@ -145,7 +167,8 @@ ALTER TABLE `creneaux`
 -- Index pour la table `favoris`
 --
 ALTER TABLE `favoris`
-  ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `membre` (`membre`);
 
 --
 -- Index pour la table `historiques`
@@ -157,6 +180,14 @@ ALTER TABLE `historiques`
   ADD KEY `membre` (`membre`);
 
 --
+-- Index pour la table `intermédiare`
+--
+ALTER TABLE `intermédiare`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `id_membre` (`idm`),
+  ADD KEY `id_souhaits` (`id_souhaits`);
+
+--
 -- Index pour la table `jeu`
 --
 ALTER TABLE `jeu`
@@ -166,14 +197,16 @@ ALTER TABLE `jeu`
 -- Index pour la table `souhaits`
 --
 ALTER TABLE `souhaits`
-  ADD PRIMARY KEY (`id`),
+  ADD PRIMARY KEY (`id_membre`,`id_creneau`),
+  ADD KEY `id_membre` (`id_membre`),
   ADD KEY `id_creneau` (`id_creneau`);
 
 --
 -- Index pour la table `utilisateurs`
 --
 ALTER TABLE `utilisateurs`
-  ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `nom` (`nom`);
 
 --
 -- AUTO_INCREMENT pour les tables exportées
@@ -183,7 +216,7 @@ ALTER TABLE `utilisateurs`
 -- AUTO_INCREMENT pour la table `creneaux`
 --
 ALTER TABLE `creneaux`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
 --
 -- AUTO_INCREMENT pour la table `favoris`
 --
@@ -195,15 +228,15 @@ ALTER TABLE `favoris`
 ALTER TABLE `historiques`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 --
+-- AUTO_INCREMENT pour la table `intermédiare`
+--
+ALTER TABLE `intermédiare`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+--
 -- AUTO_INCREMENT pour la table `jeu`
 --
 ALTER TABLE `jeu`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
---
--- AUTO_INCREMENT pour la table `souhaits`
---
-ALTER TABLE `souhaits`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 --
 -- AUTO_INCREMENT pour la table `utilisateurs`
 --
@@ -220,6 +253,12 @@ ALTER TABLE `creneaux`
   ADD CONSTRAINT `creneaux_ibfk_1` FOREIGN KEY (`jeu`) REFERENCES `jeu` (`id`);
 
 --
+-- Contraintes pour la table `favoris`
+--
+ALTER TABLE `favoris`
+  ADD CONSTRAINT `favoris_ibfk_1` FOREIGN KEY (`membre`) REFERENCES `utilisateurs` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
 -- Contraintes pour la table `historiques`
 --
 ALTER TABLE `historiques`
@@ -229,7 +268,8 @@ ALTER TABLE `historiques`
 -- Contraintes pour la table `souhaits`
 --
 ALTER TABLE `souhaits`
-  ADD CONSTRAINT `souhaits_ibfk_1` FOREIGN KEY (`id_creneau`) REFERENCES `creneaux` (`id`);
+  ADD CONSTRAINT `souhaits_ibfk_1` FOREIGN KEY (`id_membre`) REFERENCES `utilisateurs` (`id`) ON DELETE CASCADE,
+  ADD CONSTRAINT `souhaits_ibfk_2` FOREIGN KEY (`id_creneau`) REFERENCES `creneaux` (`id`) ON UPDATE CASCADE;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
