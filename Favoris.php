@@ -1,11 +1,16 @@
 <?php
 session_start();
 $titre = "Liste des favoris";
-include("header.inc.php");
+
+
+include'header.inc.php';
+include'nav_membre.php';
+
+
 //$idjeu = $_SESSION['PROFILE']['id'];
 require_once("database1.php");
 require_once("role_membre.php");
-include 'nav_membre.php';
+
 ?>
 
 <div class="container text-center">

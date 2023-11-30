@@ -65,10 +65,10 @@ if ($con->connect_error) {
       }, 4000);
   </script>";
 
-    } else {
+    }/* else {
         echo "Erreur lors de l'ajout de l'image : " . mysqli_error($con);
-    }
-}
+    }*/
+
 
 $con->close();
 ?>

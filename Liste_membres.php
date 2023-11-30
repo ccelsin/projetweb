@@ -4,7 +4,7 @@ session_start();
 require_once("roleAdmin.php");
 require_once("nav_admin.php");
 
-    $title_page = " Espace Administrateur";
+    $title = " Espace Administrateur";
     include("header.inc.php");
    
 ?>

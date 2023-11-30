@@ -5,15 +5,12 @@ session_start();
 require_once("roleAdmin.php");
 require_once("nav_admin.php");
 
-?>
-
-<?php
-
-$title_page = " Liste des Jeux";
-include 'database1.php';
-include'header.inc.php';
+    $title = " Accueil Admin";
+    include("header.inc.php");
 
 ?>
+
+
 
 
 

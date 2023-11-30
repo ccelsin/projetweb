@@ -6,7 +6,7 @@ session_start();
 require_once("roleAdmin.php");
 
 
-$title_page = " Liste des Créneaux";
+$title = " Liste des Créneaux";
 include 'database1.php';
 include'header.inc.php';
 require_once("nav_admin.php");
