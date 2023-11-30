@@ -2,6 +2,7 @@
 session_start(); // Pour les messages
 require_once("role_membre.php");
 // Connexion à la base de données
+require_once("nav_membre.php");
 require_once("database1.php");
 $con = new mysqli($host, $login, $passwd, $dbname);
 

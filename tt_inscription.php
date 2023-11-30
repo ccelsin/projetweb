@@ -7,7 +7,7 @@ $nom = htmlentities($_POST['nom']);
 $prenom = htmlentities($_POST['prenom']);
 $email = htmlentities($_POST['email']);
 $password = htmlentities($_POST['password']);
-$statut = 0;
+$statut = 1;
 
 // Option pour bcrypt
 $options = [

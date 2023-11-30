@@ -1,7 +1,7 @@
 
 
 <?php
-    $title_page = "Page d'accueil ";
+    $title = "Page d'accueil ";
     include("header.inc.php");
 ?>
 

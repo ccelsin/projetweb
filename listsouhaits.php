@@ -3,6 +3,7 @@ session_start();
 $titre_page = "Liste des souhaits";
 include("header.inc.php");
 require_once("role_membre.php");
+require_once("nav_membre.php");
 require_once("database1.php");
 
 $membre = $_SESSION['PROFILE']['id'];

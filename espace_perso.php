@@ -1,6 +1,6 @@
 <?php
 session_start();
-    $title_page = " Espace Personnel";
+    $title= " Espace Personnel";
     include("header.inc.php");
     include'nav_membre.php';
     $name = $_SESSION['PROFILE']['nom'];

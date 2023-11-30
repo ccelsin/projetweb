@@ -1,5 +1,5 @@
 <?php
-    $title_page = " Nos jeux";
+    $title = " Nos jeux";
     include("header.inc.php");
     
 ?>
