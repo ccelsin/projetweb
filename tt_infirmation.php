@@ -25,9 +25,7 @@ if ($con->connect_error) {
     $cren = $resultat['id_creneau'];
     $uti = $resultat['id_membre'];
 
-    $stm2 = $con->query("SELECT email FROM souhaits INNER JOIN utilisateurs ON (id_membre = id) WHERE id_creneau = '$id_creneau'");
-    $resultat = $stm2->fetch_assoc();
-    $emaill = $resultat['email'];
+   
 
 
     $stm1 = $con->query("DELETE FROM souhaits WHERE id_membre = '$uti' AND id_creneau = '$cren';");
@@ -65,10 +63,8 @@ if ($con->connect_error) {
       }, 4000);
   </script>";
 
-    }/* else {
-        echo "Erreur lors de l'ajout de l'image : " . mysqli_error($con);
-    }*/
-
+   
+}
 
 $con->close();
 ?>
